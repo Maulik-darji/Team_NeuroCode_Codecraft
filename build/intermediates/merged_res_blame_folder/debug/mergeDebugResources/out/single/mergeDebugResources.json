@@ -1,0 +1,442 @@
+[
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_otp.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_otp.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_org_notification.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_org_notification.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_org_media_thumbnail.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_org_media_thumbnail.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_organization_alerts.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_alerts.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_org_badge_warning.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_org_badge_warning.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_org_back.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_org_back.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_checkbox_unchecked.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_checkbox_unchecked.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_heart_filled.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_heart_filled.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/xml_backup_rules.xml.flat",
+        "source": "com.example.reloopai-main-51:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_cat_furniture.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_cat_furniture.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_consumption_history.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_consumption_history.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_org_setup_step2.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_org_setup_step2.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_step_green.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_step_green.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_org_badge_new.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_org_badge_new.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_category.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_category.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_category_selected.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_category_selected.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_card_unchecked.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_card_unchecked.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_list_container.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_list_container.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_org_alert.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_org_alert.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_organization_list_asset.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_list_asset.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_org_button_forest.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_org_button_forest.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.reloopai-main-51:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_dashed_box.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_dashed_box.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_back.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_back.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_btn_primary.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_btn_primary.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_org_button_outline.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_org_button_outline.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_target_threshold.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_target_threshold.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_organization_surplus_marketplace.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_surplus_marketplace.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_signup.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_org_marketplace_listing.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_org_marketplace_listing.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_org_warning.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_org_warning.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_cat_tools.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_cat_tools.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_cat_appliances.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_cat_appliances.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_org_recommendation.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_org_recommendation.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_org_info.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_org_info.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_cat_mobile.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_cat_mobile.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_resource_detail.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_resource_detail.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/color_bottom_nav_colors.xml.flat",
+        "source": "com.example.reloopai-main-51:/color/bottom_nav_colors.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_btn_secondary.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_btn_secondary.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_org_badge_offer.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_org_badge_offer.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_org_setup_step4.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_org_setup_step4.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_org_badge_critical.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_org_badge_critical.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_org_marketplace_category.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_org_marketplace_category.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_product_card.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_product_card.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_card_unselected.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_card_unselected.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_tag.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_tag.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_post_requirement.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_post_requirement.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_input_field.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_input_field.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_dialog_org_listing_preview.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/dialog_org_listing_preview.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_org_resource.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_org_resource.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_org_profile.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_org_profile.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_org_consumption.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_org_consumption.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_organization_profile.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_profile.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_heart_outline.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_heart_outline.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.reloopai-pngs-44:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_checkbox_checked.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_checkbox_checked.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_ai_recommendation.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_ai_recommendation.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_card_selected.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_card_selected.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_org_card.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_org_card.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_search_nav.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_search_nav.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_org_forecast_card.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_org_forecast_card.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_org_marketplace_filter.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_org_marketplace_filter.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_main.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_cat_sports.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_cat_sports.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_layout_skeleton_product.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/layout_skeleton_product.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_dashboard.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_sustainability_overview.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_sustainability_overview.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_step_grey.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_step_grey.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_org_arrow_right.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_org_arrow_right.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_category_default.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_category_default.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_box_outline.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_box_outline.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_arrow_right.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_arrow_right.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_org_critical.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_org_critical.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_item_org_enquiry.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/item_org_enquiry.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_organization_enquiries.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_enquiries.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_org_setup_step3.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_org_setup_step3.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_individual_setup.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_individual_setup.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_resource_management.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_resource_management.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_product_card.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_product_card.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_cat_fashion.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_cat_fashion.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_post.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_post.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/menu_menu_bottom_nav.xml.flat",
+        "source": "com.example.reloopai-main-51:/menu/menu_bottom_nav.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_home.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_home.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_create_account.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_create_account.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_cat_vehicles.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_cat_vehicles.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_otp_box_unfocused.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_otp_box_unfocused.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_org_badge_normal.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_org_badge_normal.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_check_white.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_check_white.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_login.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_otp_box_focused.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_otp_box_focused.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_activity.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_activity.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_setup_complete.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_setup_complete.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_ic_cat_electronics.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/ic_cat_electronics.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.reloopai-main-51:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_layout_empty_state.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/layout_empty_state.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_ai_forecast.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_ai_forecast.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/layout_activity_organization_dashboard.xml.flat",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_dashboard.xml"
+    },
+    {
+        "merged": "com.example.reloopai-debug-49:/drawable_bg_card_checked.xml.flat",
+        "source": "com.example.reloopai-main-51:/drawable/bg_card_checked.xml"
+    }
+]

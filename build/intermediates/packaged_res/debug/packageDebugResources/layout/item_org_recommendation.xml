@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_org_card"
+    android:orientation="vertical"
+    android:padding="14dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvRecTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/tvReduction"
+            android:layout_alignParentStart="true"
+            android:text="1. Shift 2 carding lines to off-peak"
+            android:textColor="@color/org_text_charcoal"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvReduction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_org_badge_normal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:text="-4,200 kWh"
+            android:textColor="@color/org_primary_forest"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvRecDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Run 22:00–06:00 on the Pandesara feeder to balance load and avoid peak surge tariffs."
+        android:textColor="@color/org_text_muted"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btnApplyRecommendation"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_org_button_forest"
+        android:paddingHorizontal="16dp"
+        android:text="Apply / Track Action"
+        android:textColor="@color/org_surface_white"
+        android:textSize="12sp" />
+</LinearLayout>
