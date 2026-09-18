@@ -1,0 +1,158 @@
+[
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_individual_setup.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_individual_setup.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_organization_list_asset.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_list_asset.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_dashboard.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_organization_surplus_marketplace.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_surplus_marketplace.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_org_enquiry.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_org_enquiry.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_org_marketplace_category.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_org_marketplace_category.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_signup.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/layout_empty_state.xml",
+        "source": "com.example.reloopai-main-51:/layout/layout_empty_state.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_org_setup_step3.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_org_setup_step3.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_create_account.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_create_account.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_setup_complete.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_setup_complete.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_main.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_consumption_history.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_consumption_history.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_org_media_thumbnail.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_org_media_thumbnail.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_category.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_category.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_org_setup_step2.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_org_setup_step2.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_ai_forecast.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_ai_forecast.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_organization_profile.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_profile.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_target_threshold.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_target_threshold.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_product_card.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_product_card.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_ai_recommendation.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_ai_recommendation.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_org_setup_step4.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_org_setup_step4.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/layout_skeleton_product.xml",
+        "source": "com.example.reloopai-main-51:/layout/layout_skeleton_product.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_org_consumption.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_org_consumption.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_organization_dashboard.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_dashboard.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_sustainability_overview.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_sustainability_overview.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_resource_management.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_resource_management.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_organization_alerts.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_alerts.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_org_recommendation.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_org_recommendation.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_org_alert.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_org_alert.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/dialog_org_listing_preview.xml",
+        "source": "com.example.reloopai-main-51:/layout/dialog_org_listing_preview.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_org_marketplace_filter.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_org_marketplace_filter.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_organization_enquiries.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_organization_enquiries.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_otp.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_otp.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_post_requirement.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_post_requirement.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_resource_detail.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_resource_detail.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/activity_login.xml",
+        "source": "com.example.reloopai-main-51:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_org_resource.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_org_resource.xml"
+    },
+    {
+        "merged": "com.example.reloopai-mergeDebugResources-48:/layout/item_org_marketplace_listing.xml",
+        "source": "com.example.reloopai-main-51:/layout/item_org_marketplace_listing.xml"
+    }
+]
