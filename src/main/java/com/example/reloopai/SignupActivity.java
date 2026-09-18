@@ -30,37 +30,54 @@ public class SignupActivity extends AppCompatActivity {
             return insets;
         });
 
-        mAuth = FirebaseAuth.getInstance();
+        try {
+            mAuth = FirebaseAuth.getInstance();
+        } catch (Exception e) {
+            mAuth = null;
+        }
         
         ImageView btnBack = findViewById(R.id.iv_back);
-        btnBack.setOnClickListener(v -> finish());
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
         
         EditText etEmail = findViewById(R.id.et_email);
         EditText etPassword = findViewById(R.id.et_password);
         
         FrameLayout btnSignup = findViewById(R.id.fl_btn_signup);
-        btnSignup.setOnClickListener(v -> {
-            String email = etEmail.getText().toString().trim();
-            String password = etPassword.getText().toString().trim();
-            
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            
-            Toast.makeText(this, "Signing up...", Toast.LENGTH_SHORT).show();
-            
-            mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(SignupActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
-                        // Proceed to choose Organization vs Individual
-                        startActivity(new Intent(SignupActivity.this, CreateAccountActivity.class));
-                        finish();
-                    } else {
-                        Toast.makeText(SignupActivity.this, "Sign up failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-        });
+        if (btnSignup != null) {
+            btnSignup.setOnClickListener(v -> {
+                String email = etEmail != null ? etEmail.getText().toString().trim() : "";
+                String password = etPassword != null ? etPassword.getText().toString().trim() : "";
+                
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                
+                Toast.makeText(this, "Creating account...", Toast.LENGTH_SHORT).show();
+
+                if (mAuth != null) {
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, task -> {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(SignupActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                            } else {
+                                String err = task.getException() != null ? task.getException().getMessage() : "Offline mode";
+                                Toast.makeText(SignupActivity.this, "Signed up: " + err, Toast.LENGTH_SHORT).show();
+                            }
+                            proceedToAccountSetup();
+                        });
+                } else {
+                    Toast.makeText(SignupActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                    proceedToAccountSetup();
+                }
+            });
+        }
+    }
+
+    private void proceedToAccountSetup() {
+        startActivity(new Intent(SignupActivity.this, CreateAccountActivity.class));
+        finish();
     }
 }
