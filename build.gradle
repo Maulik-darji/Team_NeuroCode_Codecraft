@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -37,9 +38,17 @@ dependencies {
     implementation libs.constraintlayout
     implementation libs.material
 
-    // Firebase Firestore and Storage SDKs
-    implementation 'com.google.firebase:firebase-firestore:24.11.0'
-    implementation 'com.google.firebase:firebase-storage:20.3.0'
+    // Firebase BoM, Auth, Firestore, Storage, Analytics
+    implementation platform('com.google.firebase:firebase-bom:33.7.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-storage'
+
+    // Country Code Picker & Retrofit
+    implementation 'com.hbb20:ccp:2.6.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     testImplementation libs.junit
     androidTestImplementation libs.espresso.core

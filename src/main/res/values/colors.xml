@@ -3,6 +3,26 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- Maulik Auth / Post Requirement UI Colors -->
+    <color name="bg_color">#F2F2F2</color>
+    <color name="text_primary">#1D1D1D</color>
+    <color name="text_secondary">#6E6E6E</color>
+    <color name="green_primary">#147646</color>
+    <color name="orange_primary">#BA7F1A</color>
+    <color name="border_color">#AFAFAF</color>
+    <color name="success_bg">#E8F5E9</color>
+    
+    <!-- Category Colors -->
+    <color name="cat_bg_default">#E0E0E0</color>
+    <color name="cat_icon_default">#424242</color>
+    <color name="cat_bg_selected">#E8F5E9</color>
+    <color name="cat_border_selected">#147646</color>
+    <color name="cat_icon_selected">#147646</color>
+    
+    <!-- Product Colors -->
+    <color name="product_img_bg">#EEEEEE</color>
+    <color name="tab_selected_bg">#E6F4EA</color>
+
     <!-- RELOOP Organization Design System Colors -->
     <color name="org_primary_forest">#0F4C3A</color>
     <color name="org_forest_dark">#0D3B2E</color>
