@@ -4,18 +4,20 @@
     android:layout_width="140dp"
     android:layout_height="220dp"
     android:layout_marginEnd="12dp"
-    android:background="@color/bg_color">
+    android:background="@drawable/bg_product_card"
+    android:clipToPadding="false"
+    android:elevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/bg_box_outline">
+        android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@color/product_img_bg">
+            android:background="@drawable/bg_product_card"
+            android:backgroundTint="@color/product_img_bg">
             <TextView
                 android:id="@+id/tv_category_tag"
                 android:layout_width="wrap_content"
@@ -23,9 +25,18 @@
                 android:layout_gravity="bottom|start"
                 android:layout_margin="8dp"
                 android:text="Study table"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold" />
+                
+            <ImageView
+                android:id="@+id/iv_heart"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_heart_outline"
+                app:tint="@color/text_secondary" />
         </FrameLayout>
 
         <LinearLayout
@@ -34,7 +45,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:padding="8dp"
-            android:background="@color/white">
+            android:background="@android:color/transparent">
             
             <TextView
                 android:id="@+id/tv_price"
@@ -55,7 +66,7 @@
                 android:textSize="12sp"
                 android:layout_marginTop="4dp"
                 android:ellipsize="end"
-                android:maxLines="3" />
+                android:maxLines="2" />
                 
             <TextView
                 android:id="@+id/tv_location"
@@ -64,7 +75,9 @@
                 android:text="Piplod · 3 km"
                 android:textColor="@color/text_secondary"
                 android:textSize="10sp"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="4dp"
+                android:maxLines="1"
+                android:ellipsize="end" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
