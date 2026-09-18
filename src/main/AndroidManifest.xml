@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReLoopAI">
+
+        <!-- MAIN LAUNCHER ACTIVITY -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -21,6 +25,116 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- AUTH & ONBOARDING ACTIVITIES (MAULIK BRANCH) -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".OtpActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".CreateAccountActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".OrgSetupStep2Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".OrgSetupStep3Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".OrgSetupStep4Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SetupCompleteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SignupActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".IndividualSetupActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- ORGANIZATION MODULE ACTIVITIES (RAKESH BRANCH) -->
+        <activity
+            android:name="com.reloop.organization.dashboard.OrganizationDashboardActivity"
+            android:exported="true"
+            android:label="@string/org_dashboard_title"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.reloop.organization.resource.ResourceManagementActivity"
+            android:exported="false"
+            android:label="@string/org_resource_mgmt_title" />
+
+        <activity
+            android:name="com.reloop.organization.resource.ResourceDetailActivity"
+            android:exported="false"
+            android:label="@string/org_resource_details_title" />
+
+        <activity
+            android:name="com.reloop.organization.resource.ConsumptionHistoryActivity"
+            android:exported="false"
+            android:label="@string/org_consumption_history_title" />
+
+        <activity
+            android:name="com.reloop.organization.goals.TargetThresholdActivity"
+            android:exported="false"
+            android:label="@string/org_target_threshold_title" />
+
+        <activity
+            android:name="com.reloop.organization.forecast.AIForecastActivity"
+            android:exported="false"
+            android:label="@string/org_ai_forecast_title" />
+
+        <activity
+            android:name="com.reloop.organization.recommendation.AIRecommendationActivity"
+            android:exported="false"
+            android:label="@string/org_ai_recommendation_title" />
+
+        <activity
+            android:name="com.reloop.organization.alerts.OrganizationAlertsActivity"
+            android:exported="false"
+            android:label="@string/org_alerts_title" />
+
+        <activity
+            android:name="com.reloop.organization.sustainability.SustainabilityOverviewActivity"
+            android:exported="false"
+            android:label="@string/org_sustainability_title" />
+
+        <activity
+            android:name="com.reloop.organization.profile.OrganizationProfileActivity"
+            android:exported="false"
+            android:label="@string/org_profile_title" />
+
+        <activity
+            android:name="com.reloop.organization.marketplace.OrganizationSurplusMarketplaceActivity"
+            android:exported="false"
+            android:label="@string/org_marketplace_title" />
+
+        <activity
+            android:name="com.reloop.organization.marketplace.OrganizationListAssetActivity"
+            android:exported="false"
+            android:label="@string/org_list_asset_title"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.reloop.organization.enquiries.OrganizationEnquiriesActivity"
+            android:exported="false"
+            android:label="Activity &amp; Enquiries" />
     </application>
 
 </manifest>
