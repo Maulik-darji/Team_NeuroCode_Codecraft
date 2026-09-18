@@ -4,11 +4,7 @@ plugins {
 
 android {
     namespace 'com.example.reloopai'
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.example.reloopai"
@@ -22,9 +18,7 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable false
-            }
+            minifyEnabled false
         }
     }
     compileOptions {
