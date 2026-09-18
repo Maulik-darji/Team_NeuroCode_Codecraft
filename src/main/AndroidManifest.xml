@@ -21,6 +21,58 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- ORGANIZATION MODULE ACTIVITIES -->
+        <activity
+            android:name="com.reloop.organization.dashboard.OrganizationDashboardActivity"
+            android:exported="true"
+            android:label="@string/org_dashboard_title"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.reloop.organization.resource.ResourceManagementActivity"
+            android:exported="false"
+            android:label="@string/org_resource_mgmt_title" />
+
+        <activity
+            android:name="com.reloop.organization.resource.ResourceDetailActivity"
+            android:exported="false"
+            android:label="@string/org_resource_details_title" />
+
+        <activity
+            android:name="com.reloop.organization.resource.ConsumptionHistoryActivity"
+            android:exported="false"
+            android:label="@string/org_consumption_history_title" />
+
+        <activity
+            android:name="com.reloop.organization.goals.TargetThresholdActivity"
+            android:exported="false"
+            android:label="@string/org_target_threshold_title" />
+
+        <activity
+            android:name="com.reloop.organization.forecast.AIForecastActivity"
+            android:exported="false"
+            android:label="@string/org_ai_forecast_title" />
+
+        <activity
+            android:name="com.reloop.organization.recommendation.AIRecommendationActivity"
+            android:exported="false"
+            android:label="@string/org_ai_recommendation_title" />
+
+        <activity
+            android:name="com.reloop.organization.alerts.OrganizationAlertsActivity"
+            android:exported="false"
+            android:label="@string/org_alerts_title" />
+
+        <activity
+            android:name="com.reloop.organization.sustainability.SustainabilityOverviewActivity"
+            android:exported="false"
+            android:label="@string/org_sustainability_title" />
+
+        <activity
+            android:name="com.reloop.organization.profile.OrganizationProfileActivity"
+            android:exported="false"
+            android:label="@string/org_profile_title" />
     </application>
 
 </manifest>

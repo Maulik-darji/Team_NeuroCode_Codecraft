@@ -1,3 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ReLoop AI</string>
+
+    <!-- Organization Module Strings -->
+    <string name="org_brand_title">RELOOP</string>
+    <string name="org_brand_tagline">Keep resources in motion.</string>
+    <string name="org_mode_organization">ORGANIZATION</string>
+    <string name="org_mode_regular">REGULAR</string>
+    <string name="org_mode_rrr">RRR</string>
+
+    <string name="org_dashboard_title">Organization Dashboard</string>
+    <string name="org_resource_mgmt_title">Resource Management</string>
+    <string name="org_resource_details_title">Resource Details</string>
+    <string name="org_consumption_history_title">Consumption History</string>
+    <string name="org_target_threshold_title">Target &amp; Threshold</string>
+    <string name="org_ai_forecast_title">AI Forecast</string>
+    <string name="org_ai_recommendation_title">AI Recommendation</string>
+    <string name="org_alerts_title">Resource Alerts</string>
+    <string name="org_sustainability_title">Sustainability Overview</string>
+    <string name="org_profile_title">Organization Profile</string>
+
+    <!-- Organization Surplus Marketplace Strings -->
+    <string name="org_marketplace_title">Surplus Marketplace</string>
+    <string name="org_marketplace_search_hint">Search surplus machinery, materials…</string>
+    <string name="org_marketplace_browse_category">BROWSE BY CATEGORY</string>
+    <string name="org_marketplace_surplus_near_you">SURPLUS NEAR YOU</string>
+    <string name="org_marketplace_location_default">Surat, Gujarat</string>
+    <string name="org_marketplace_empty_state">No surplus items found matching your filter.\nTry clearing search or expanding radius.</string>
 </resources>
