@@ -60,7 +60,7 @@ public class ResourceAdapter extends RecyclerView.Adapter<ResourceAdapter.Resour
             binding.tvDepartment.setText(resource.getDepartment());
             binding.tvCurrentConsumption.setText(String.format("%,.0f %s", resource.getCurrentConsumption(), resource.getUnit()));
             binding.tvLimit.setText(String.format("of %,.0f cap", resource.getLimit()));
-            binding.tvPercentage.setText(resource.getUsagePercentage() + "%");
+            binding.tvPercentage.setText(resource.getUsagePercentage() + "% consumed · target marker at " + (int) resource.getWarningThresholdPercent() + "%");
 
             binding.pbResourceUsage.setProgress(resource.getUsagePercentage());
 

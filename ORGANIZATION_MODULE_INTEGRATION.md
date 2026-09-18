@@ -64,6 +64,20 @@ com.reloop.organization
 ├── sustainability/            # 9. Sustainability Overview Screen
 │   ├── SustainabilityOverviewActivity.java
 │   └── SustainabilityViewModel.java
+├── firebase/                  # 14. Firebase Firestore & Storage Repositories
+│   ├── FirebaseOrgManager.java
+│   ├── FirebaseResourceRepository.java
+│   ├── FirebaseEnquiryRepository.java
+│   └── FirebaseListingRepository.java
+├── mock/                      # Replaceable Mock & Reset Data
+│   └── DataResetManager.java
+├── enquiries/                 # 13. Activity & Enquiries Screen (Screen 5)
+│   ├── OrganizationEnquiriesActivity.java
+│   ├── OrganizationEnquiriesViewModel.java
+│   ├── OrganizationEnquiriesRepository.java
+│   ├── OrganizationEnquiriesMockData.java
+│   ├── EnquiriesAdapter.java
+│   └── OrgEnquiry.java
 └── profile/                   # 10. Organization Profile Screen
     ├── OrganizationProfileActivity.java
     └── OrganizationProfileViewModel.java
@@ -71,18 +85,42 @@ com.reloop.organization
 
 ---
 
-## 2. Screens Created (10 Total)
+## 2. Firebase Integration & Storage (`com.reloop.organization.firebase`)
 
-1. `OrganizationDashboardActivity`: Main entry dashboard for organizations (Greeting, Summary Cards, AI Forecast card, Bulk Marketplace entry, Circular Actions).
-2. `ResourceManagementActivity`: Overview of tracked resources (Electricity, Water, Fuel, Waste, Materials) with status badges and filters.
-3. `ResourceDetailActivity`: Detailed view of a single resource showing target vs actual grid, AI prediction, and 6-month historical chart.
+The Organization module includes a Firebase Firestore and Storage integration layer:
+
+- **Root Document Path**: `organizations/{orgId}` (default `shivalik_textiles_01`).
+- **Collections**:
+  - `organizations/{orgId}/resources`: Tracked resource limits, targets, and actual consumption.
+  - `organizations/{orgId}/enquiries`: Marketplace enquiries, buyer offers, and negotiation statuses.
+  - `organizations/{orgId}/listings`: Surplus asset listings published from the app.
+- **Firebase Storage**: Asset images uploaded during surplus listing creation are stored under `organizations/{orgId}/assets/{listingId}_{timestamp}.jpg`.
+- **Safe Fallback**: If `google-services.json` or internet is unavailable, `FirebaseOrgManager` operates gracefully in offline/clean-slate mode without crashing.
+
+---
+
+## 3. Data Reset & Clean Slate Mode
+
+- **DataResetManager**: Utility in `com.reloop.organization.mock` allowing complete dataset resets so you can enter custom data directly via the UI or Firebase.
+- **Empty State Polish**: All data-driven screens handle zero-item states cleanly with user-friendly empty state cards and prompt triggers.
+
+---
+
+## 2. Screens Implemented (13 Total)
+
+1. `OrganizationDashboardActivity`: Main entry dashboard for organizations.
+2. `ResourceManagementActivity`: Resource management list screen with target markers & status counters.
+3. `ResourceDetailActivity`: Detailed view of a single resource showing target vs actual grid, AI prediction, gauge markers, and 6-month historical chart.
 4. `ConsumptionHistoryActivity`: Full daily/weekly/monthly historical consumption logs with variance percentages.
 5. `TargetThresholdActivity`: Target, maximum threshold (hard cap), unit, location, and alert configuration.
 6. `AIForecastActivity`: Full predictive forecast details, current vs predicted usage, risk badge, and trend projection.
 7. `AIRecommendationActivity`: AI-recommended optimization actions with "Apply / Track Action" triggers.
 8. `OrganizationAlertsActivity`: Critical predicted breach alerts, threshold crossing notifications, and historical alert log.
-9. `SustainabilityOverviewActivity`: 100-point sustainability index score, pillar sub-scores (Efficiency, Reuse, Recycling, Goals), and environmental/financial savings stats.
+9. `SustainabilityOverviewActivity`: 100-point sustainability index score, pillar sub-scores, and environmental/financial savings stats.
 10. `OrganizationProfileActivity`: Verified corporate profile, unit details, contact info, and management shortcuts.
+11. `OrganizationSurplusMarketplaceActivity`: Surplus asset catalog browsing, categories grid, location filter, and search.
+12. `OrganizationListAssetActivity`: Sectioned form for listing unused organization assets.
+13. `OrganizationEnquiriesActivity`: Activity & Enquiries hub with sub-tabs (`NEW (4)`, `IN TALKS`, `COMPLETED`) and `Decline` / `Respond` action handlers.
 
 ---
 

@@ -73,6 +73,22 @@
             android:name="com.reloop.organization.profile.OrganizationProfileActivity"
             android:exported="false"
             android:label="@string/org_profile_title" />
+
+        <activity
+            android:name="com.reloop.organization.marketplace.OrganizationSurplusMarketplaceActivity"
+            android:exported="false"
+            android:label="@string/org_marketplace_title" />
+
+        <activity
+            android:name="com.reloop.organization.marketplace.OrganizationListAssetActivity"
+            android:exported="false"
+            android:label="@string/org_list_asset_title"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.reloop.organization.enquiries.OrganizationEnquiriesActivity"
+            android:exported="false"
+            android:label="Activity &amp; Enquiries" />
     </application>
 
 </manifest>

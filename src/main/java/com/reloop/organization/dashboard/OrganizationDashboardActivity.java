@@ -141,7 +141,7 @@ public class OrganizationDashboardActivity extends AppCompatActivity {
         binding.cardBulkMarketplaceEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(OrganizationDashboardActivity.this, "Marketplace Contract Entry: Owned by Marketplace Team", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(OrganizationDashboardActivity.this, com.reloop.organization.marketplace.OrganizationSurplusMarketplaceActivity.class));
             }
         });
 
@@ -177,13 +177,6 @@ public class OrganizationDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(OrganizationDashboardActivity.this, OrganizationAlertsActivity.class));
-            }
-        });
-
-        binding.navProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(OrganizationDashboardActivity.this, OrganizationProfileActivity.class));
             }
         });
     }

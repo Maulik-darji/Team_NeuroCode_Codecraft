@@ -27,4 +27,17 @@
     <string name="org_marketplace_surplus_near_you">SURPLUS NEAR YOU</string>
     <string name="org_marketplace_location_default">Surat, Gujarat</string>
     <string name="org_marketplace_empty_state">No surplus items found matching your filter.\nTry clearing search or expanding radius.</string>
+
+    <!-- Organization List Surplus Asset Form Strings -->
+    <string name="org_list_asset_title">List surplus asset</string>
+    <string name="org_list_asset_draft_saved">DRAFT SAVED</string>
+    <string name="org_list_asset_sec_media">MEDIA</string>
+    <string name="org_list_asset_sec_basic">ASSET BASIC INFO</string>
+    <string name="org_list_asset_sec_intent">CIRCULAR ECONOMY INTENT</string>
+    <string name="org_list_asset_sec_availability">AVAILABILITY &amp; QUANTITY</string>
+    <string name="org_list_asset_sec_pricing">PRICING</string>
+    <string name="org_list_asset_sec_fulfillment">FULFILLMENT &amp; LOCATION</string>
+    <string name="org_list_asset_sec_description">DESCRIPTION &amp; DETAILS</string>
+    <string name="org_list_asset_btn_preview">Preview</string>
+    <string name="org_list_asset_btn_publish">Publish listing →</string>
 </resources>

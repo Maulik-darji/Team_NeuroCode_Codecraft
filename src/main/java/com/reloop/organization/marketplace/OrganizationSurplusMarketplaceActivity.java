@@ -39,6 +39,12 @@ public class OrganizationSurplusMarketplaceActivity extends AppCompatActivity {
         viewModel.loadData();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.loadData();
+    }
+
     private void setupRecyclerViews() {
         binding.rvFilterChips.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         binding.rvCategories.setLayoutManager(new GridLayoutManager(this, 3));
@@ -50,6 +56,13 @@ public class OrganizationSurplusMarketplaceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        binding.btnNavToListAsset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(OrganizationSurplusMarketplaceActivity.this, OrganizationListAssetActivity.class));
             }
         });
 

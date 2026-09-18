@@ -53,6 +53,12 @@ public class ResourceDetailActivity extends AppCompatActivity {
                 binding.tvRemainingAllowance.setText(String.format("%,.0f %s", (resource.getLimit() - resource.getCurrentConsumption()), resource.getUnit()));
                 binding.tvDailyAverage.setText("4,556 " + resource.getUnit());
                 binding.tvTrendVsAugust.setText(String.format("▲ %.1f%%", resource.getTrendChangePercent()));
+                double target = resource.getLimit() * 0.9; // 90% target marker
+                binding.tvMainMetricDisplay.setText(String.format("%,.0f %s used · 18 days in", resource.getCurrentConsumption(), resource.getUnit()));
+                binding.pbGaugeUsage.setMax((int) resource.getLimit());
+                binding.pbGaugeUsage.setProgress((int) resource.getCurrentConsumption());
+                binding.tvGaugeTargetLabel.setText(String.format("Target %,.0f", target));
+                binding.tvGaugeThresholdLabel.setText(String.format("Threshold %,.0f", resource.getLimit()));
                 binding.tvDetailStatus.setText(resource.getStatus());
             }
         });

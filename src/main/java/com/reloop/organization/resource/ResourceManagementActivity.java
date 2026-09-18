@@ -47,7 +47,12 @@ public class ResourceManagementActivity extends AppCompatActivity {
         viewModel.getResources().observe(this, new Observer<List<TrackedResource>>() {
             @Override
             public void onChanged(List<TrackedResource> list) {
-                if (list != null) {
+                if (list == null || list.isEmpty()) {
+                    binding.containerEmptyState.setVisibility(View.VISIBLE);
+                    binding.rvResources.setVisibility(View.GONE);
+                } else {
+                    binding.containerEmptyState.setVisibility(View.GONE);
+                    binding.rvResources.setVisibility(View.VISIBLE);
                     ResourceAdapter adapter = new ResourceAdapter(list, new ResourceAdapter.OnResourceClickListener() {
                         @Override
                         public void onResourceClick(TrackedResource resource) {

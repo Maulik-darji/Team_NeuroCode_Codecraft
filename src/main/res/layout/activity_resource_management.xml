@@ -175,6 +175,27 @@
             android:textSize="12sp"
             android:textStyle="bold" />
 
+        <!-- EMPTY STATE CONTAINER -->
+        <LinearLayout
+            android:id="@+id/containerEmptyState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_org_card"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="No resources configured yet.\nSet up targets &amp; thresholds to start monitoring."
+                android:textColor="@color/org_text_muted"
+                android:textSize="13sp" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvResources"
             android:layout_width="match_parent"
