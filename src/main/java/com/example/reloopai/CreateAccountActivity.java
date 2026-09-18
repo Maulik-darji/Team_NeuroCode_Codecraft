@@ -2,7 +2,8 @@ package com.example.reloopai;
 
 import android.os.Bundle;
 import android.content.Intent;
-import android.widget.Button;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,13 +11,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
-
+public class CreateAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_create_account);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -24,15 +24,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button btnCreateAccount = findViewById(R.id.btn_primary);
-        btnCreateAccount.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, SignupActivity.class));
+        View orgCard = findViewById(R.id.ll_card_org);
+        orgCard.setOnClickListener(v -> {
+            startActivity(new Intent(CreateAccountActivity.this, OrgSetupStep2Activity.class));
+        });
+
+        View indCard = findViewById(R.id.ll_card_ind);
+        indCard.setOnClickListener(v -> {
+            startActivity(new Intent(CreateAccountActivity.this, IndividualSetupActivity.class));
         });
     
-        Button btnLogin = findViewById(R.id.btn_secondary);
-        btnLogin.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        });
-    
+        ImageView btnBack = findViewById(R.id.iv_back);
+        btnBack.setOnClickListener(v -> finish());
     }
 }
