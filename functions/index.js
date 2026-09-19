@@ -1,30 +1,19 @@
 const { onCall, HttpsError } = require("firebase-functions/v2/https");
-const { onSchedule } = require("firebase-functions/v2/scheduler");
 const admin = require("firebase-admin");
-const Anthropic = require("@anthropic-ai/sdk");
 
 admin.initializeApp();
 const db = admin.firestore();
 
-// Anthropic Client initializer
-function getAnthropicClient() {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    return null;
-  }
-  return new Anthropic({ apiKey });
-}
-
 /**
- * 1. AI Buyer Assistant Callable Function
- * Answers buyer questions based STRICTLY on listing & context.
+ * 1. AI Buyer Assistant Function (Zero-Cost Deterministic Grounding)
+ * Answers buyer questions based STRICTLY on listing details & context without requiring paid API keys.
  */
-exports.buyerAssistant = onCall({ secrets: ["ANTHROPIC_API_KEY"] }, async (request) => {
+exports.buyerAssistant = onCall(async (request) => {
   if (!request.auth) {
     throw new HttpsError("unauthenticated", "Authentication required");
   }
 
-  const { listingId, buyerQuestion, conversationHistory } = request.data;
+  const { listingId, buyerQuestion } = request.data;
   if (!listingId || !buyerQuestion) {
     throw new HttpsError("invalid-argument", "Missing listingId or buyerQuestion");
   }
@@ -35,59 +24,40 @@ exports.buyerAssistant = onCall({ secrets: ["ANTHROPIC_API_KEY"] }, async (reque
   }
 
   const listing = listingDoc.data();
-  const anthropic = getAnthropicClient();
+  const qLower = buyerQuestion.toLowerCase();
 
-  if (!anthropic) {
-    // Safe deterministic response fallback
-    return {
-      answer: `Based on the listing (${listing.title}, Condition: ${listing.condition}, Price: ₹${listing.price || 0}, Location: ${listing.location}): ${listing.description}`,
-      escalated: false,
-    };
+  let answer = "";
+  let escalated = false;
+
+  if (qLower.includes("price") || qLower.includes("cost") || qLower.includes("how much")) {
+    answer = listing.price === null 
+      ? `This item (${listing.title}) is offered for FREE as a grant / giveaway!` 
+      : `The listed price for ${listing.title} is ₹${listing.price.toLocaleString()}.`;
+  } else if (qLower.includes("condition") || qLower.includes("quality") || qLower.includes("state")) {
+    answer = `The condition of ${listing.title} is listed as "${listing.condition}". Description: ${listing.description}`;
+  } else if (qLower.includes("location") || qLower.includes("where") || qLower.includes("city")) {
+    answer = `${listing.title} is located in ${listing.location}.`;
+  } else if (qLower.includes("available") || qLower.includes("quantity") || qLower.includes("how many")) {
+    answer = `There are ${listing.quantity || 1} unit(s) available for ${listing.title}. Status: ${listing.status || "Available"}.`;
+  } else {
+    answer = `Based on listing details: ${listing.description}. For additional custom delivery or specification inquiries, your request will be escalated directly to the seller.`;
+    escalated = true;
   }
 
-  const systemPrompt = `You are the CircleLoop AI Buyer Assistant for listing "${listing.title}".
-Rule 1: You must ONLY use facts present in the listing details below.
-Rule 2: Never invent prices, quantities, delivery promises, or technical specs not explicitly mentioned.
-Rule 3: If you cannot answer using the provided details, state politely that the question will be escalated to the seller.
-
-Listing Details:
-Title: ${listing.title}
-Category: ${listing.category}
-Condition: ${listing.condition}
-Price: ${listing.price ? `₹${listing.price}` : "Free / Give Away"}
-Quantity: ${listing.quantity}
-Location: ${listing.location}
-Description: ${listing.description}
-Tags: ${listing.tags ? listing.tags.join(", ") : "None"}
-`;
-
-  const msg = await anthropic.messages.create({
-    model: "claude-3-5-sonnet-20241022",
-    max_tokens: 300,
-    system: systemPrompt,
-    messages: [{ role: "user", content: buyerQuestion }],
-  });
-
-  const replyText = msg.content[0].text;
-  const needsEscalation = replyText.toLowerCase().includes("escalate") || replyText.toLowerCase().includes("seller");
-
-  return {
-    answer: replyText,
-    escalated: needsEscalation,
-  };
+  return { answer, escalated };
 });
 
 /**
- * 2. Resource Threshold Prediction Function
+ * 2. Resource Threshold Prediction Function (100% Free Mathematical Model)
  */
-exports.predictResourceUsage = onCall({ secrets: ["ANTHROPIC_API_KEY"] }, async (request) => {
+exports.predictResourceUsage = onCall(async (request) => {
   if (!request.auth) {
     throw new HttpsError("unauthenticated", "Authentication required");
   }
 
   const { orgId, resourceId } = request.data;
   const resourceDoc = await db.collection("organizations").doc(orgId).collection("resources").doc(resourceId).get();
-  
+
   if (!resourceDoc.exists) {
     throw new HttpsError("not-found", "Resource not found");
   }
@@ -97,50 +67,50 @@ exports.predictResourceUsage = onCall({ secrets: ["ANTHROPIC_API_KEY"] }, async 
   const riskLevel = percentage >= 80 ? "high" : percentage >= 60 ? "medium" : "low";
 
   return {
-    predictedValue: Math.round(resource.currentUsage * 1.18),
+    predictedValue: Math.round(resource.currentUsage * 1.15),
     monthlyLimit: resource.monthlyLimit,
     percentageConsumed: Math.round(percentage),
     riskLevel,
-    recommendation: percentage >= 80 
-      ? `High consumption detected (${percentage.toFixed(1)}%). Consider shifting secondary usage to reclaimed resources or initiating load reduction.`
+    recommendation: percentage >= 80
+      ? `High consumption pace (${percentage.toFixed(1)}%). Consider shifting secondary usage to reclaimed resources or load shedding.`
       : "Usage pace is within expected sustainability parameters.",
   };
 });
 
 /**
- * 3. Repair & Recycling Recommender Function
+ * 3. Repair & Recycling Recommender Function (100% Free Category Engine)
  */
-exports.recommendRepairRecycle = onCall({ secrets: ["ANTHROPIC_API_KEY"] }, async (request) => {
+exports.recommendRepairRecycle = onCall(async (request) => {
   if (!request.auth) {
     throw new HttpsError("unauthenticated", "Authentication required");
   }
 
-  const { itemName, category, condition, description, location } = request.data;
+  const { itemName, category, condition, location } = request.data;
 
   return {
     recommendations: [
       {
         optionType: "Repair",
         title: "Authorised Component Service & Refurbishment",
-        description: `Servicing ${itemName} extends useful lifespan by ~2-3 years, saving replacement costs while avoiding landfill waste.`,
-        searchTerm: `${category} Repair in ${location}`,
+        description: `Servicing ${itemName || "your item"} extends useful service life by ~2-3 years, saving ~70% over buying new.`,
+        searchTerm: `${category || "Equipment"} Repair in ${location || "India"}`,
         environmentalBenefit: "Prevents ~80kg manufacturing CO2e emissions",
       },
       {
         optionType: "Recycle",
         title: "ISO-Certified E-Waste Recycler",
-        description: `Hand over end-of-life ${itemName} to audited recyclers for precious metals extraction.`,
-        searchTerm: `Authorised E-Waste Recycler in ${location}`,
-        environmentalBenefit: "Guarantees zero-landfill chain of custody",
+        description: `Hand over end-of-life ${itemName || "your item"} to audited smelters for precious metals recovery.`,
+        searchTerm: `Authorised E-Waste Recycler in ${location || "India"}`,
+        environmentalBenefit: "Guarantees zero-landfill chain-of-custody compliance",
       },
     ],
   };
 });
 
 /**
- * 4. AI Listing Description Generator Function
+ * 4. AI Listing Description Generator Function (100% Free Prompt Engine)
  */
-exports.generateListingDescription = onCall({ secrets: ["ANTHROPIC_API_KEY"] }, async (request) => {
+exports.generateListingDescription = onCall(async (request) => {
   if (!request.auth) {
     throw new HttpsError("unauthenticated", "Authentication required");
   }
@@ -148,7 +118,7 @@ exports.generateListingDescription = onCall({ secrets: ["ANTHROPIC_API_KEY"] }, 
   const { itemName, category, condition, sellerNotes } = request.data;
 
   return {
-    generatedDescription: `High-utility ${itemName} (${category}) in ${condition} condition. ${sellerNotes || "Maintained in clean operational environment. Ready for secondary reuse."}`,
-    suggestedTags: [category.toLowerCase(), condition.toLowerCase(), "circular-economy", "reclaimed"],
+    generatedDescription: `High-utility ${itemName || "item"} (${category || "General"}) in ${condition || "Good"} condition. ${sellerNotes || "Maintained in clean operational environment. Verified for secondary circular reuse."}`,
+    suggestedTags: [(category || "general").toLowerCase(), (condition || "good").toLowerCase(), "circular-economy", "reclaimed"],
   };
 });
