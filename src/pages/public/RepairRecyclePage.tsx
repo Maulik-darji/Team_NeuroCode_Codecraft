@@ -1,21 +1,61 @@
 import React, { useState } from 'react';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
+import { useAuth } from '../../context/AuthContext';
 import { Card } from '../../components/common/Card';
 import { Button } from '../../components/common/Button';
 import { Input } from '../../components/common/Input';
 import { Badge } from '../../components/common/Badge';
 
 export const RepairRecyclePage: React.FC = () => {
+  const { user } = useAuth();
+
   const [itemName, setItemName] = useState('');
   const [category, setCategory] = useState('Electronics');
   const [condition, setCondition] = useState('Fair');
   const [location, setLocation] = useState('Bengaluru');
   const [description, setDescription] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!itemName.trim() || !location.trim()) {
+      alert('Please fill in Item Name and Location.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const requestId = `rec_${Date.now()}`;
+      const requestData = {
+        id: requestId,
+        userId: user ? user.uid : 'user-guest',
+        itemName: itemName.trim(),
+        itemDescription: description.trim(),
+        category,
+        condition,
+        location: location.trim(),
+        status: 'Processed',
+        createdAt: new Date().toISOString(),
+      };
+
+      if (user) {
+        await setDoc(doc(db, 'recycleRequests', requestId), requestData);
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error('Failed to submit recycling request:', err);
+      alert('Could not save request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  const repairSearchTerm = `${category} Repair in ${location}`;
+  const recycleSearchTerm = `Authorised ${category} E-Waste Recycler in ${location}`;
 
   return (
     <div className="pt-24 pb-16 max-w-[1440px] mx-auto px-4 md:px-margin">
@@ -38,7 +78,7 @@ export const RepairRecyclePage: React.FC = () => {
             </h3>
 
             <Input
-              label="Item Name"
+              label="Item Name *"
               placeholder="e.g. Industrial Servo Motor, HP LaserJet Printer"
               value={itemName}
               onChange={(e) => setItemName(e.target.value)}
@@ -47,7 +87,7 @@ export const RepairRecyclePage: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-3">
               <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-xs font-semibold text-primary">Category</label>
+                <label className="font-label-sm text-xs font-semibold text-primary">Category *</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
@@ -62,7 +102,7 @@ export const RepairRecyclePage: React.FC = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-xs font-semibold text-primary">Condition</label>
+                <label className="font-label-sm text-xs font-semibold text-primary">Condition *</label>
                 <select
                   value={condition}
                   onChange={(e) => setCondition(e.target.value)}
@@ -77,7 +117,7 @@ export const RepairRecyclePage: React.FC = () => {
             </div>
 
             <Input
-              label="Location (City)"
+              label="Location (City) *"
               placeholder="e.g. Bengaluru, Pune, Ahmedabad"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -95,7 +135,7 @@ export const RepairRecyclePage: React.FC = () => {
               />
             </div>
 
-            <Button type="submit" variant="primary" size="lg" icon={<span className="material-symbols-outlined text-[20px]">psychology</span>}>
+            <Button type="submit" variant="primary" size="lg" isLoading={isSubmitting} icon={<span className="material-symbols-outlined text-[20px]">psychology</span>}>
               Get AI Recommendations
             </Button>
           </form>
@@ -116,12 +156,12 @@ export const RepairRecyclePage: React.FC = () => {
               Authorised Component Service & Refurbishment
             </h4>
             <p className="font-body-sm text-xs text-on-surface-variant">
-              Field inspection and component replacement for {itemName || 'your item'} extends useful service life by ~2-3 years while saving ~70% cost over buying new.
+              Field inspection and component replacement for <strong>{itemName || 'your item'}</strong> in <strong>{location}</strong> extends useful service life by ~2-3 years while saving ~70% cost over buying new.
             </p>
             <div className="pt-2 border-t border-outline/10 flex items-center justify-between">
-              <span className="text-xs text-outline font-mono">Search Category: "Industrial Electronics Repair"</span>
+              <span className="text-xs text-outline font-mono truncate max-w-[240px]">Search: "{repairSearchTerm}"</span>
               <a
-                href={`https://www.google.com/maps/search/Industrial+Electronics+Repair+in+${encodeURIComponent(location)}`}
+                href={`https://www.google.com/maps/search/${encodeURIComponent(repairSearchTerm)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 text-xs text-primary font-bold hover:underline"
@@ -138,15 +178,15 @@ export const RepairRecyclePage: React.FC = () => {
               <span className="text-xs text-on-surface-variant font-mono">End-of-Life Handover</span>
             </div>
             <h4 className="font-headline-sm text-base font-bold text-primary">
-              Authorised ISO-Certified E-Waste Recycler
+              Authorised ISO-Certified Recycler
             </h4>
             <p className="font-body-sm text-xs text-on-surface-variant">
-              If non-repairable, hand over to an audited smelter for precious metals recovery and zero-landfill compliance documentation.
+              If non-repairable, hand over <strong>{itemName || 'your item'}</strong> to an audited smelter for precious metals recovery and zero-landfill compliance documentation.
             </p>
             <div className="pt-2 border-t border-outline/10 flex items-center justify-between">
-              <span className="text-xs text-outline font-mono">Search Category: "Authorised E-Waste Recycler"</span>
+              <span className="text-xs text-outline font-mono truncate max-w-[240px]">Search: "{recycleSearchTerm}"</span>
               <a
-                href={`https://www.google.com/maps/search/Authorised+E-Waste+Recycler+in+${encodeURIComponent(location)}`}
+                href={`https://www.google.com/maps/search/${encodeURIComponent(recycleSearchTerm)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 text-xs text-primary font-bold hover:underline"
@@ -161,3 +201,5 @@ export const RepairRecyclePage: React.FC = () => {
     </div>
   );
 };
+
+export default RepairRecyclePage;

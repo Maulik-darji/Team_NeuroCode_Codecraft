@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 import { useAuth } from '../../context/AuthContext';
 import { Card } from '../../components/common/Card';
 import { Button } from '../../components/common/Button';
@@ -14,16 +16,61 @@ export const OrgRegistrationPage: React.FC = () => {
   const [docUrl, setDocUrl] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const { user } = useAuth();
+  const { user, refreshProfile } = useAuth();
   const navigate = useNavigate();
 
-  const handleRegister = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!user) {
+      alert('You must be signed in to register an organization.');
+      navigate('/login');
+      return;
+    }
+
+    if (!name.trim() || !gstCin.trim() || !location.trim()) {
+      alert('Please fill out all required fields.');
+      return;
+    }
+
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const orgId = `org_${Date.now()}`;
+      const orgData = {
+        orgId,
+        name: name.trim(),
+        type,
+        gstCin: gstCin.trim(),
+        location: location.trim(),
+        verificationDocUrl: docUrl.trim() || 'https://storage.google.com/org-docs/certificate.pdf',
+        adminUid: user.uid,
+        memberUids: [user.uid],
+        verified: false, // Initially false until Platform Admin approves!
+        createdAt: new Date().toISOString(),
+      };
+
+      // Write to Firestore `organizations` collection
+      await setDoc(doc(db, 'organizations', orgId), orgData);
+
+      // Update user document role to `org_admin`
+      await setDoc(
+        doc(db, 'users', user.uid),
+        {
+          orgId,
+          role: 'org_admin',
+        },
+        { merge: true }
+      );
+
+      await refreshProfile();
       setSubmitted(true);
-    }, 800);
+    } catch (err: any) {
+      console.error('Org registration Firestore error:', err);
+      alert('Registration failed. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -44,7 +91,7 @@ export const OrgRegistrationPage: React.FC = () => {
             <Badge variant="warning" icon="hourglass_top">Pending Platform Verification</Badge>
             <h3 className="font-headline-sm text-xl font-bold text-primary">Registration Submitted!</h3>
             <p className="font-body-md text-sm text-on-surface-variant max-w-md">
-              Your organization <strong>{name}</strong> (GST/CIN: {gstCin}) has been registered. Platform administrators are reviewing your verification documentation.
+              Your organization <strong>{name}</strong> (GST/CIN: {gstCin}) has been registered in Firestore. Platform administrators are reviewing your verification documentation.
             </p>
             <Button variant="primary" onClick={() => navigate('/org/dashboard')} className="mt-2">
               Proceed to Organization Dashboard
@@ -53,7 +100,7 @@ export const OrgRegistrationPage: React.FC = () => {
         ) : (
           <form onSubmit={handleRegister} className="flex flex-col gap-4">
             <Input
-              label="Organization Legal Name"
+              label="Organization Legal Name *"
               placeholder="e.g. Bharat Fab Tech Ltd."
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -63,7 +110,7 @@ export const OrgRegistrationPage: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-3">
               <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-xs font-semibold text-primary">Organization Type</label>
+                <label className="font-label-sm text-xs font-semibold text-primary">Organization Type *</label>
                 <select
                   value={type}
                   onChange={(e) => setType(e.target.value)}
@@ -79,7 +126,7 @@ export const OrgRegistrationPage: React.FC = () => {
               </div>
 
               <Input
-                label="GSTIN / CIN Registration #"
+                label="GSTIN / CIN Registration # *"
                 placeholder="e.g. 27AAAAA0000A1Z5 / U28910"
                 value={gstCin}
                 onChange={(e) => setGstCin(e.target.value)}
@@ -89,7 +136,7 @@ export const OrgRegistrationPage: React.FC = () => {
             </div>
 
             <Input
-              label="Headquarters Location"
+              label="Headquarters Location *"
               placeholder="e.g. Pune Fabrication Complex, MH"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -114,3 +161,5 @@ export const OrgRegistrationPage: React.FC = () => {
     </div>
   );
 };
+
+export default OrgRegistrationPage;

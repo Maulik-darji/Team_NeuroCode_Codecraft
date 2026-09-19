@@ -7,6 +7,7 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
 
   const navLinks = [
+    { name: 'System Ingress', path: '/splash' },
     { name: 'How It Works', path: '/how-it-works' },
     { name: 'Marketplace', path: '/marketplace' },
     { name: 'Organizations', path: '/organizations' },

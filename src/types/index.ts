@@ -42,13 +42,15 @@ export interface Listing {
   quantity: number;
   images: string[];
   location: string;
-  postedBy: string; // uid
+  city?: string;
+  postedBy: string; // sellerId uid
   postedByName?: string;
   postedByType: 'user' | 'organization';
   status: ListingStatus;
   aiSummary?: string;
   tags: string[];
   createdAt: string;
+  updatedAt?: string;
   expiresAt?: string;
 }
 

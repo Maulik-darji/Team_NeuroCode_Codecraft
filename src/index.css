@@ -23,3 +23,58 @@
   background: #006c48;
   border-radius: 3px;
 }
+
+/* Stitch Splash Screen Animations */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-reverse-slow {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: scale(0.98); }
+  50% { opacity: 0.85; transform: scale(1.03); }
+}
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes dash-orbit {
+  to { stroke-dashoffset: -1000; }
+}
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+.animate-spin-reverse {
+  animation: spin-reverse-slow 16s linear infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+.animate-float {
+  animation: float-gentle 5s ease-in-out infinite;
+}
+.orbit-stroke {
+  stroke-dasharray: 12 16;
+  animation: dash-orbit 30s linear infinite;
+}
+.radial-vignette {
+  background: radial-gradient(circle at 50% 45%, rgba(27, 67, 50, 0.45) 0%, rgba(11, 29, 21, 0.92) 65%, #050d09 100%);
+}
+.glow-conic {
+  background: conic-gradient(from 180deg at 50% 50%, rgba(45, 225, 154, 0.15) 0deg, rgba(27, 67, 50, 0.05) 120deg, rgba(45, 225, 154, 0.25) 240deg, rgba(45, 225, 154, 0.15) 360deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow, .animate-spin-reverse, .animate-pulse-glow, .animate-float, .orbit-stroke {
+    animation: none !important;
+  }
+}
+

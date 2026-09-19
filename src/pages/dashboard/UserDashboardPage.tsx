@@ -78,7 +78,7 @@ export const UserDashboardPage: React.FC = () => {
           </div>
           <div className="mt-4 pt-3 border-t border-outline/10 flex items-center justify-between">
             <span className="text-xs text-outline font-mono">1 Matched Query</span>
-            <Link to="/marketplace" className="text-xs text-secondary font-bold hover:underline">
+            <Link to="/requirements" className="text-xs text-secondary font-bold hover:underline">
               Post Requirement →
             </Link>
           </div>
@@ -96,8 +96,8 @@ export const UserDashboardPage: React.FC = () => {
             </p>
           </div>
           <div className="mt-4 pt-3 border-t border-outline/10 flex items-center justify-between">
-            <span className="text-xs text-outline font-mono">0 Pending Chats</span>
-            <Link to="/marketplace" className="text-xs text-secondary font-bold hover:underline">
+            <span className="text-xs text-outline font-mono">Active Conversations</span>
+            <Link to="/conversations" className="text-xs text-secondary font-bold hover:underline">
               View Conversations →
             </Link>
           </div>
