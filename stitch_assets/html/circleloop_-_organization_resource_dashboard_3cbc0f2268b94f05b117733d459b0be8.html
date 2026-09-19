@@ -1,0 +1,784 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-container-highest": "#d9e3f9",
+        "surface": "#f9f9ff",
+        "tertiary-container": "#2a4131",
+        "on-primary-fixed": "#002114",
+        "surface-container": "#e7eeff",
+        "outline": "#717973",
+        "surface-container-high": "#dee8ff",
+        "on-secondary-container": "#00734d",
+        "background": "#f9f9ff",
+        "on-primary-container": "#86af99",
+        "on-primary": "#ffffff",
+        "on-tertiary": "#ffffff",
+        "surface-container-lowest": "#ffffff",
+        "inverse-primary": "#a5d0b9",
+        "on-surface-variant": "#414844",
+        "on-primary-fixed-variant": "#274e3d",
+        "tertiary": "#152b1c",
+        "outline-variant": "#c1c8c2",
+        "on-error-container": "#93000a",
+        "on-secondary-fixed-variant": "#005235",
+        "surface-variant": "#d9e3f9",
+        "on-secondary": "#ffffff",
+        "surface-container-low": "#f0f3ff",
+        "primary-container": "#1b4332",
+        "error": "#ba1a1a",
+        "secondary-container": "#92f7c3",
+        "on-secondary-fixed": "#002113",
+        "error-container": "#ffdad6",
+        "tertiary-fixed-dim": "#b3cdb7",
+        "surface-tint": "#3f6653",
+        "tertiary-fixed": "#cee9d3",
+        "primary-fixed": "#c1ecd4",
+        "on-error": "#ffffff",
+        "on-background": "#121c2c",
+        "surface-dim": "#d0daf0",
+        "secondary": "#006c48",
+        "on-tertiary-container": "#93ad98",
+        "secondary-fixed-dim": "#75daa8",
+        "on-tertiary-fixed-variant": "#354c3b",
+        "primary": "#012d1d",
+        "inverse-surface": "#273141",
+        "inverse-on-surface": "#ebf1ff",
+        "on-tertiary-fixed": "#092012",
+        "primary-fixed-dim": "#a5d0b9",
+        "surface-bright": "#f9f9ff",
+        "secondary-fixed": "#92f7c3",
+        "on-surface": "#121c2c"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "margin": "3rem",
+        "gutter-mobile": "0.75rem",
+        "margin-mobile": "1.25rem",
+        "space-sm": "0.5rem",
+        "space-md": "1rem",
+        "space-xs": "0.25rem",
+        "space-xl": "2.5rem",
+        "space-lg": "1.5rem",
+        "gutter": "1.5rem"
+      },
+      "fontFamily": {
+        "body-sm": ["Hanken Grotesk"],
+        "label-sm": ["JetBrains Mono"],
+        "headline-lg": ["Space Grotesk"],
+        "display-hero-mobile": ["Space Grotesk"],
+        "body-md": ["Hanken Grotesk"],
+        "body-lg": ["Hanken Grotesk"],
+        "headline-sm": ["Space Grotesk"],
+        "display-hero": ["Space Grotesk"],
+        "label-lg": ["JetBrains Mono"],
+        "label-md": ["JetBrains Mono"],
+        "headline-lg-mobile": ["Space Grotesk"],
+        "headline-md": ["Space Grotesk"]
+      },
+      "fontSize": {
+        "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+        "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+        "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+        "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+        "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+        "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+        "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+      }
+    }
+  }
+}</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(27,67,50,0.06)]"><div class="h-20 max-w-[1440px] mx-auto px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="CircleLoop Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U8qc52xiziJ2QA0wHNwUJZuOHQhLKfh9lH7Bogv5FppkUeuvm-r35GmNb2dz3wo7gJ_tfcPDiisCTXQnRQoxtt3WxbA794NmnQ6oPDNp4ohQGCCP0y-_DJqUEAxjO6NJ2C9vz20Ajlrh9ZRYs-XlexVOfimfObkm9PRsIPZMhexBCGFMsd2p8fYwIWRVelGZUF6gJgtJw0E8vfiojfZtjtJc8RqIeaWFntasjbqHgpN_GAzFvz05MvRPY"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">CircleLoop</span></div><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-3 py-1.5 rounded-full border border-secondary/20"><span class="material-symbols-outlined text-secondary text-[18px]">domain</span><span class="font-label-md text-label-md text-primary font-medium">Bharat Fab Tech Ltd.</span><span class="px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Verified CIN</span><span class="material-symbols-outlined text-on-surface-variant text-[16px]">expand_more</span></div></div><nav class="hidden lg:flex items-center gap-space-md xl:gap-space-lg" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a aria-current="page" class="py-2 transition-colors text-primary font-semibold border-b-2 border-primary" data-path="dashboard" href="#">Dashboard</a><a class="py-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="resources" href="#">Resources</a><a class="py-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="goals-and-limits" href="#">Goals &amp; Limits</a><a class="py-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-predictions" href="#">AI Predictions</a><a class="py-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="surplus-exchange" href="#">Surplus Exchange</a><a class="py-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="team-members" href="#">Team Members</a></nav><div class="flex items-center gap-space-sm"><a class="hidden md:inline-flex items-center gap-1 px-3.5 py-2 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container font-label-md text-label-md transition-all" data-path="record-daily-usage" href="#" id="header-record-usage-btn" onclick="document.getElementById('record-usage-modal').classList.remove('hidden'); return false;"><span class="material-symbols-outlined text-[16px]">add</span>Record Daily Usage</a><a class="inline-flex items-center gap-1 px-3.5 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md transition-all shadow-[0_2px_6px_-1px_rgba(27,67,50,0.2)]" data-path="new-resource" href="#"><span class="material-symbols-outlined text-[16px]">add</span>New Resource</a><div class="flex items-center gap-space-xs pl-space-xs"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">admin_panel_settings</span></div><div class="hidden 2xl:flex flex-col"><span class="font-label-md text-label-md text-primary font-medium leading-none">Admin Portal</span><span class="font-label-sm text-label-sm text-on-surface-variant">Org Admin</span></div></div></div></div></header><main class="w-full pt-20 bg-background max-w-[1440px] mx-auto px-margin"><div class="flex flex-col w-full pb-16 space-y-8">
+<!-- Top Context & Facility Banner -->
+<section class="w-full bg-surface-container-low rounded-xl p-space-md md:p-space-lg shadow-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+          CIN &amp; GST VERIFIED
+        </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">CIN: U28910MH2012PLC1</span>
+<span class="text-on-surface-variant font-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cluster Code: MH-PUN-FAB-02</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight truncate">
+        Bharat Fab Tech Ltd. — Pune Fabrication Complex
+      </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Phase 2 Org Resource Ledger · Shift Supervisor &amp; Org Admin Node · Real-time Scope 1 &amp; 2 Audit Loop
+      </p>
+</div>
+<!-- Quick Action / Date Header Selector -->
+<div class="flex flex-wrap items-center gap-space-sm w-full lg:w-auto justify-start lg:justify-end">
+<div class="flex items-center gap-2 px-3 py-2 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">calendar_month</span>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Current Audit Cycle</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Q1 2025 (Month 02) · Oct 1 - Oct 31</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] ml-1">arrow_drop_down</span>
+</div>
+<button class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm" id="open-record-modal-btn" onclick="document.getElementById('record-usage-modal').classList.remove('hidden');">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+        Record Daily Usage
+      </button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">sim_card_download</span>
+        Export ESG Pack
+      </button>
+</div>
+</section>
+<!-- 4 Primary Resource Metric Summary KPI Cards -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Electricity -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Scope 2 Utility</span>
+<h2 class="font-headline-sm text-headline-sm text-primary font-semibold">Electricity</h2>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          ON TRACK
+        </span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline justify-between mb-1">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">142,400</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">kWh</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Limit: 220,000 kWh</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container rounded-full h-2.5 overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-700" style="width: 64.7%;"></div>
+</div>
+</div>
+<div class="mt-3 pt-3 flex items-center justify-between text-on-surface-variant">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm">Consumed</span>
+<span class="font-label-md text-label-md font-semibold text-primary">64.7%</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm">Balance Buffer</span>
+<span class="font-label-md text-label-md font-semibold text-secondary">77,600 kWh remaining</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Industrial Water -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Closed Process</span>
+<h2 class="font-headline-sm text-headline-sm text-primary font-semibold">Industrial Water</h2>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          HEALTHY
+        </span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline justify-between mb-1">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">310.0</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">kL</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Limit: 600 kL</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2.5 overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-700" style="width: 51.6%;"></div>
+</div>
+</div>
+<div class="mt-3 pt-3 flex items-center justify-between text-on-surface-variant">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm">Consumed</span>
+<span class="font-label-md text-label-md font-semibold text-primary">51.6%</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm">Recycle Loop</span>
+<span class="font-label-md text-label-md font-semibold text-secondary">290.0 kL remaining</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Process Fuel -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Thermal &amp; DG Sets</span>
+<h2 class="font-headline-sm text-headline-sm text-primary font-semibold">Process Fuel</h2>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          ON TRACK
+        </span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline justify-between mb-1">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">1,820</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">L</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Limit: 4,000 L</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2.5 overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-700" style="width: 45.5%;"></div>
+</div>
+</div>
+<div class="mt-3 pt-3 flex items-center justify-between text-on-surface-variant">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm">Consumed</span>
+<span class="font-label-md text-label-md font-semibold text-primary">45.5%</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm">Quota Margin</span>
+<span class="font-label-md text-label-md font-semibold text-secondary">2,180 L remaining</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Raw Virgin Materials (Alert) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-lg bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-error font-semibold uppercase tracking-wider block">Resource Quota Risk</span>
+<h2 class="font-headline-sm text-headline-sm text-primary font-semibold">Virgin Metals</h2>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+          ALERT: EXCEED IN 6D
+        </span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline justify-between mb-1">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">42.8</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">MT</span>
+</div>
+<span class="font-label-sm text-label-sm text-error font-semibold">Limit: 50.0 MT</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2.5 overflow-hidden">
+<div class="bg-error h-full rounded-full transition-all duration-700" style="width: 85.6%;"></div>
+</div>
+</div>
+<div class="mt-3 pt-3 flex items-center justify-between text-on-surface-variant">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-error">Burn Rate: 85.6%</span>
+<span class="font-label-md text-label-md font-semibold text-primary">+18.4% velocity</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm">Critical Threshold</span>
+<span class="font-label-md text-label-md font-bold text-error">Only 7.2 MT Left</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Recharts-styled Daily Consumption Trends & Anomaly Engine -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col space-y-6">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Telemetry Stream</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">IoT Automated Sync</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">
+          Daily Consumption &amp; Dynamic Run-Rate Baseline
+        </h2>
+</div>
+<!-- Resource Filter Switcher + Mode Toggle -->
+<div class="flex flex-wrap items-center gap-2">
+<div class="inline-flex rounded-lg bg-surface-container-low p-1 text-on-surface">
+<button class="px-3 py-1.5 rounded-md bg-surface-container-lowest font-label-md text-label-md text-primary font-medium shadow-sm transition-all">Daily Trend (30 Days)</button>
+<button class="px-3 py-1.5 rounded-md text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors">Cumulative vs Quota</button>
+</div>
+<div class="flex items-center gap-1 pl-2">
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+            Electricity
+          </button>
+<button class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-colors">Water</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-colors">Fuel</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-colors">Raw Metals</button>
+</div>
+</div>
+</div>
+<!-- Chart Canvas / Vector Render -->
+<div class="relative w-full bg-gradient-to-b from-surface-container-low/40 to-transparent rounded-xl p-4 lg:p-6 overflow-hidden">
+<!-- Chart Meta Info Bar -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-4 pb-3">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-3 h-0.5 bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Daily Usage (kWh)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-0.5 bg-error border-dashed"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Quota Baseline (7,333 kWh/day)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<span class="font-label-sm text-label-sm text-error font-medium">Day 18 AI Anomaly Detected</span>
+</div>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">
+          Mean Variance: <span class="font-semibold text-secondary">-4.2%</span> vs Target
+        </div>
+</div>
+<!-- High fidelity Scalable SVG Chart -->
+<div class="w-full h-72 relative">
+<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 1000 320">
+<defs>
+<linearGradient id="electricityGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#006c48" stop-opacity="0.32"></stop>
+<stop offset="100%" stop-color="#006c48" stop-opacity="0.0"></stop>
+</linearGradient>
+<filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+<feDropShadow dx="0" dy="4" flood-color="#006c48" flood-opacity="0.25" stdDeviation="3"></feDropShadow>
+</filter>
+</defs>
+<!-- Horizontal Grid Lines -->
+<line stroke="#c1c8c2" stroke-opacity="0.3" stroke-width="1" x1="40" x2="980" y1="40" y2="40"></line>
+<text fill="#717973" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="32" y="44">10k</text>
+<line stroke="#c1c8c2" stroke-opacity="0.3" stroke-width="1" x1="40" x2="980" y1="110" y2="110"></line>
+<text fill="#717973" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="32" y="114">7.5k</text>
+<line stroke="#c1c8c2" stroke-opacity="0.3" stroke-width="1" x1="40" x2="980" y1="180" y2="180"></line>
+<text fill="#717973" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="32" y="184">5.0k</text>
+<line stroke="#c1c8c2" stroke-opacity="0.3" stroke-width="1" x1="40" x2="980" y1="250" y2="250"></line>
+<text fill="#717973" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="32" y="254">2.5k</text>
+<!-- Baseline Reference Line (7,333 kWh) -->
+<line opacity="0.8" stroke="#ba1a1a" stroke-dasharray="4,4" stroke-width="1.5" x1="40" x2="980" y1="114" y2="114"></line>
+<rect fill="#ffdad6" height="18" rx="4" width="130" x="850" y="100"></rect>
+<text fill="#93000a" font-family="JetBrains Mono" font-size="9" font-weight="600" text-anchor="middle" x="915" y="112">Limit: 7,333 kWh/day</text>
+<!-- Area Fill -->
+<path d="M 40,220 
+                   L 70,210 L 105,200 L 140,215 L 175,190 L 210,185 L 245,175 L 280,180 
+                   L 315,160 L 350,170 L 385,150 L 420,165 L 455,140 L 490,135 L 525,145 
+                   L 560,55 
+                   L 595,155 L 630,160 L 665,150 L 700,140 L 735,148 L 770,138 L 805,130 
+                   L 840,125 L 875,132 L 910,120 L 945,110 L 980,118 
+                   L 980,280 L 40,280 Z" fill="url(#electricityGradient)"></path>
+<!-- Stroke Line -->
+<path d="M 40,220 
+                   L 70,210 L 105,200 L 140,215 L 175,190 L 210,185 L 245,175 L 280,180 
+                   L 315,160 L 350,170 L 385,150 L 420,165 L 455,140 L 490,135 L 525,145 
+                   L 560,55 
+                   L 595,155 L 630,160 L 665,150 L 700,140 L 735,148 L 770,138 L 805,130 
+                   L 840,125 L 875,132 L 910,120 L 945,110 L 980,118" fill="none" filter="url(#glow)" stroke="#006c48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Normal Points -->
+<circle cx="280" cy="180" fill="#012d1d" r="3.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="455" cy="140" fill="#012d1d" r="3.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="770" cy="138" fill="#012d1d" r="3.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="945" cy="110" fill="#006c48" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+<!-- Anomaly Indicator on Day 18 (x: 560, y: 55) -->
+<circle class="animate-ping" cx="560" cy="55" fill="#ba1a1a" fill-opacity="0.25" r="9"></circle>
+<circle cx="560" cy="55" fill="#ba1a1a" r="5" stroke="#ffffff" stroke-width="2"></circle>
+<!-- Day 18 Anomaly Callout -->
+<g transform="translate(560, 20)">
+<rect fill="#121c2c" height="26" opacity="0.95" rx="6" width="170" x="-85" y="-12"></rect>
+<text fill="#ffffff" font-family="Hanken Grotesk" font-size="10" font-weight="600" text-anchor="middle" x="0" y="4">
+              Day 18 Spike: +9,640 kWh (+31%)
+            </text>
+</g>
+<!-- X-Axis Labels (Oct 1 - Oct 28) -->
+<text fill="#717973" font-family="JetBrains Mono" font-size="10" x="40" y="298">Oct 01</text>
+<text fill="#717973" font-family="JetBrains Mono" font-size="10" x="210" y="298">Oct 07</text>
+<text fill="#717973" font-family="JetBrains Mono" font-size="10" x="385" y="298">Oct 14</text>
+<text fill="#ba1a1a" font-family="JetBrains Mono" font-size="10" font-weight="700" x="560" y="298">Oct 18 (Spike)</text>
+<text fill="#717973" font-family="JetBrains Mono" font-size="10" x="735" y="298">Oct 23</text>
+<text fill="#717973" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="980" y="298">Oct 28 (Today)</text>
+</svg>
+</div>
+<!-- Anomaly Detail Insight Card -->
+<div class="mt-4 p-3.5 bg-surface-container-low rounded-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-body-sm font-body-sm">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-error text-[20px]">warning</span>
+<p class="text-on-surface">
+<span class="font-semibold text-primary">Day 18 Incident Root Cause:</span> Main Substation Capacitor Bank trip during Induction Furnace Batch #24B. Corrective load redistribution confirmed by Pune Electrical Lead at 14:15 IST.
+          </p>
+</div>
+<button class="shrink-0 px-3 py-1 rounded bg-surface-container font-label-sm text-label-sm text-primary hover:bg-surface-container-high transition-colors">
+          Inspect Waveform Telemetry
+        </button>
+</div>
+</div>
+</section>
+<!-- Split Grid: AI Consumption Forecast & Active Quota Limits -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- AI Consumption Predictions & Threshold Alerts Panel (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col justify-between space-y-5">
+<div>
+<div class="flex items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error font-bold">Deterministic AI Risk Engine</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold">
+            Risk: High (91% Conf.)
+          </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-semibold">
+          Threshold Breach Prediction: Virgin Metals
+        </h2>
+</div>
+<!-- Predictive Card Details -->
+<div class="p-4 bg-error-container/20 rounded-xl space-y-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-[24px] mt-0.5">crisis_alert</span>
+<div class="flex flex-col gap-1">
+<span class="font-body-md text-body-md font-semibold text-primary leading-tight">
+              Raw Virgin Material consumption pace is +18.4% above seasonal velocity.
+            </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Projected end-of-period usage: <strong class="text-error font-semibold">53.4 MT</strong> against verified organizational limit of <strong class="text-primary font-semibold">50.0 MT</strong>. Quota depletion projected in <strong class="text-error font-bold">6 days</strong> (Nov 03, 2025).
+            </p>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider block mb-1">
+            Prescribed Circular Mitigation
+          </span>
+<p class="font-body-sm text-body-sm text-on-surface">
+            Reclaim <span class="font-semibold text-primary">6.2 MT</span> of scrap sheet aluminum from <em>Pune Annex Warehouse</em> via internal inventory transfer, or route CNC run batch 408 to secondary re-melt facility.
+          </p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-2 pt-2">
+<a class="w-full py-2.5 px-4 rounded-lg bg-primary text-on-primary text-center font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm flex items-center justify-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+          Transfer 6.2 MT from Annex Warehouse
+        </a>
+<div class="grid grid-cols-2 gap-2">
+<a class="py-2 px-3 rounded-lg bg-secondary-container text-on-secondary-container text-center font-label-sm text-label-sm font-semibold hover:bg-secondary-fixed-dim transition-colors flex items-center justify-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-[16px]">storefront</span>
+            List on Exchange
+          </a>
+<button class="py-2 px-3 rounded-lg bg-surface-container text-on-surface text-center font-label-sm text-label-sm font-semibold hover:bg-surface-container-high transition-colors">
+            Acknowledge Alert
+          </button>
+</div>
+</div>
+</div>
+<!-- Active ESG Sustainability Goals & Threshold Limits (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col justify-between space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold block">Compliance Protocols</span>
+<h2 class="font-headline-sm text-headline-sm text-primary font-semibold">Active Quotas &amp; FY25 Sustainability Commitments</h2>
+</div>
+<a class="font-label-sm text-label-sm text-secondary hover:underline font-semibold flex items-center gap-1" href="#">
+          Configure Limits
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex flex-col space-y-3">
+<!-- Goal Item 1 -->
+<div class="p-3.5 bg-surface-container-low rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-surface-container transition-colors">
+<div class="space-y-1 max-w-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">ON TRACK</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Due Nov 15, 2025</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">AI Conf: 94%</span>
+</div>
+<h3 class="font-body-md text-body-md font-semibold text-primary">Quarterly electricity reduction by 15% vs FY24 Baseline</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Target: <strong>200,000 kWh</strong></span>
+<span class="">Current: <strong class="text-primary">142,400 kWh</strong></span>
+</div>
+</div>
+<!-- Gauge Arc representation -->
+<div class="flex items-center gap-3 shrink-0 self-end md:self-center">
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">71.2%</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Quota Used</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Goal Item 2 -->
+<div class="p-3.5 bg-surface-container-low rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-surface-container transition-colors">
+<div class="space-y-1 max-w-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">ON TRACK</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Due Dec 31, 2025</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">AI Conf: 88%</span>
+</div>
+<h3 class="font-body-md text-body-md font-semibold text-primary">Zero-landfill metal cut-offs &amp; machining swarf circularity</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Target: <strong>35.0 MT diverted</strong></span>
+<span class="">Current: <strong class="text-primary">28.4 MT</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end md:self-center">
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">81.1%</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Diverted</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">recycling</span>
+</div>
+</div>
+</div>
+<!-- Goal Item 3 (At Risk) -->
+<div class="p-3.5 bg-error-container/20 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-error-container/30 transition-colors">
+<div class="space-y-1 max-w-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error text-on-error font-semibold">AT RISK</span>
+<span class="font-label-sm text-label-sm text-error font-mono">Due Oct 30, 2025 (2 Days)</span>
+<span class="font-label-sm text-label-sm text-error font-semibold">Action Required</span>
+</div>
+<h3 class="font-body-md text-body-md font-semibold text-primary">Process water closed-loop recycling rate threshold</h3>
+<p class="font-body-sm text-body-sm text-error">
+              Filter backwash cycle overhaul needed to reach verified circular quota.
+            </p>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Target: <strong>40.0% Recycled</strong></span>
+<span class="">Current: <strong class="text-error font-bold">26.0%</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end md:self-center">
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-error font-bold">26.0%</span>
+<span class="block font-label-sm text-label-sm text-error">Lagging -14%</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[22px]">priority_high</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Daily Usage Logs & Ledger Audit Trail -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col space-y-4">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Immutable Ledger</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">
+          Daily Usage Logs &amp; Operational Audit Trail
+        </h2>
+</div>
+<!-- Table Filter and Search -->
+<div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+<div class="relative flex-grow sm:flex-grow-0">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full sm:w-64 pl-9 pr-3 py-1.5 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant outline-none focus:bg-surface-container-lowest focus:shadow-sm" placeholder="Filter by user or batch..." type="text">
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-label-sm text-label-sm text-primary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+          All Types
+        </button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase">
+<th class="py-3 px-4 rounded-l-lg">Timestamp &amp; Shift</th>
+<th class="py-3 px-4">Resource Category</th>
+<th class="py-3 px-4">Logged Delta</th>
+<th class="py-3 px-4">Authorizing Operator</th>
+<th class="py-3 px-4">Process / Batch Note</th>
+<th class="py-3 px-4 text-center rounded-r-lg">Audit Status</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-sm font-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-4 font-mono font-label-sm text-label-sm text-primary">
+              Today · 09:30 AM IST
+              <span class="block text-on-surface-variant font-body-sm">Morning Shift A</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 text-primary font-semibold">
+<span class="material-symbols-outlined text-secondary text-[18px]">bolt</span>
+                Electricity
+              </span>
+</td>
+<td class="py-3.5 px-4 font-mono font-bold text-primary">
+              +4,820 kWh
+            </td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary text-[10px] font-bold">RM</div>
+<span class="font-medium text-primary">Rajesh M.</span>
+<span class="text-on-surface-variant text-[11px]">(Shift Lead)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+              Night shift extrusion line 2 active &amp; tempering run.
+            </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-4 font-mono font-label-sm text-label-sm text-primary">
+              Yesterday · 06:00 PM IST
+              <span class="block text-on-surface-variant font-body-sm">Evening Shift B</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 text-primary font-semibold">
+<span class="material-symbols-outlined text-secondary text-[18px]">water_drop</span>
+                Industrial Water
+              </span>
+</td>
+<td class="py-3.5 px-4 font-mono font-bold text-primary">
+              +12.4 kL
+            </td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-on-secondary text-[10px] font-bold">SP</div>
+<span class="font-medium text-primary">Sunita P.</span>
+<span class="text-on-surface-variant text-[11px]">(Facility Ops)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+              Cooling tower water makeup &amp; softening loop feed.
+            </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-4 font-mono font-label-sm text-label-sm text-primary">
+              Oct 22 · 05:15 PM IST
+              <span class="block text-on-surface-variant font-body-sm">General Shift</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 text-primary font-semibold">
+<span class="material-symbols-outlined text-secondary text-[18px]">local_fire_department</span>
+                Process Fuel
+              </span>
+</td>
+<td class="py-3.5 px-4 font-mono font-bold text-primary">
+              +85 L
+            </td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary text-[10px] font-bold">AK</div>
+<span class="font-medium text-primary">Anil K.</span>
+<span class="text-on-surface-variant text-[11px]">(Boiler Incharge)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+              Scheduled diesel backup generator test cycle (30 mins).
+            </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-4 font-mono font-label-sm text-label-sm text-primary">
+              Oct 21 · 02:40 PM IST
+              <span class="block text-on-surface-variant font-body-sm">Afternoon Shift</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 text-error font-semibold">
+<span class="material-symbols-outlined text-error text-[18px]">precision_manufacturing</span>
+                Raw Virgin Metals
+              </span>
+</td>
+<td class="py-3.5 px-4 font-mono font-bold text-error">
+              +3.2 MT
+            </td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-on-primary text-[10px] font-bold">DT</div>
+<span class="font-medium text-primary">Deepak T.</span>
+<span class="text-on-surface-variant text-[11px]">(Store Sup.)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+              High tensile cold-rolled steel coils batch 404 allocated to CNC.
+            </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Count Status -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Showing <strong class="text-primary font-semibold">1-4</strong> of <strong class="text-primary font-semibold">48</strong> ledger records in Q1 2025</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-medium disabled:opacity-50" disabled="">Previous</button>
+<span class="px-3 py-1.5 rounded-md bg-primary text-on-primary font-bold">1</span>
+<button class="px-3 py-1.5 rounded-md bg-surface-container-low text-primary hover:bg-surface-container font-medium">2</button>
+<button class="px-3 py-1.5 rounded-md bg-surface-container-low text-primary hover:bg-surface-container font-medium">3</button>
+<button class="px-3 py-1.5 rounded-md bg-surface-container-low text-primary hover:bg-surface-container font-medium">Next</button>
+</div>
+</div>
+</section>
+<!-- Interactive Slide-Over Modal: Record Daily Usage -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-primary/40 backdrop-blur-sm p-4 overflow-y-auto" id="record-usage-modal"><div class="w-full max-w-xl bg-surface-container-lowest rounded-2xl shadow-xl border border-secondary/20 p-6 relative my-auto transition-all"><div class="flex items-start justify-between pb-4 border-b border-surface-container"><div class="flex flex-col gap-1"><div class="flex items-center gap-2"><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>Daily Operations Log</span><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-mono font-label-sm text-label-sm">Firestore Ledger</span></div><h3 class="font-headline-sm text-headline-sm text-primary font-semibold">Record Daily Resource Usage</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Log daily consumption figures with shift operator authorization and Firestore verifiable hash.</p></div><button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors" id="close-record-modal-btn" onclick="document.getElementById('record-usage-modal').classList.add('hidden')" type="button"><span class="material-symbols-outlined text-[20px]">close</span></button></div><form class="space-y-4 pt-4" id="usage-form" onsubmit="event.preventDefault(); alert('Success: Usage log signed and committed to Firestore collection /usageLogs.'); document.getElementById('record-usage-modal').classList.add('hidden');"><div><label class="block font-label-sm text-label-sm text-primary uppercase font-medium mb-1">Resource Category</label><select class="w-full p-2.5 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface outline-none focus:bg-surface-container-lowest focus:shadow-sm border border-secondary/20"><option value="electricity">Electricity (kWh) — Pune Substation 02</option><option value="water">Industrial Water (kL) — Softening Plant</option><option value="fuel">Process Fuel - LPG/Diesel (L) — DG Set Backup</option><option value="metal">Raw Virgin Metals (MT) — Coil Storage</option><option value="custom">Custom Resource (Specified in Note)</option></select></div><div><div class="flex items-center justify-between mb-1"><label class="block font-label-sm text-label-sm text-primary uppercase font-medium">Value / Quantity Consumed</label><span class="font-label-sm text-label-sm text-secondary font-medium">Buffer: 77,600 kWh remaining</span></div><div class="relative flex items-center"><input class="w-full p-2.5 pr-20 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface outline-none focus:bg-surface-container-lowest focus:shadow-sm border border-secondary/20 font-mono font-semibold" placeholder="3,450.00" required="" step="any" type="number" value="3450"><span class="absolute right-2 px-2 py-1 rounded bg-surface-container font-label-sm text-label-sm text-primary font-bold uppercase">kWh</span></div><p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Remaining buffer before quota alert: <span class="text-secondary font-semibold">77,600 kWh</span> (71.2% cycle burn rate)</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block font-label-sm text-label-sm text-primary uppercase font-medium mb-1">Recording Date</label><input class="w-full p-2.5 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface outline-none focus:bg-surface-container-lowest focus:shadow-sm border border-secondary/20 font-mono" type="text" value="Oct 29, 2025"></div><div><label class="block font-label-sm text-label-sm text-primary uppercase font-medium mb-1">Logging Shift</label><select class="w-full p-2.5 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface outline-none focus:bg-surface-container-lowest focus:shadow-sm border border-secondary/20"><option selected="">Morning Shift A (07:00 - 15:30 IST)</option><option>Evening Shift B (15:30 - 00:00 IST)</option><option>Night Shift C (00:00 - 07:00 IST)</option></select></div></div><div><label class="block font-label-sm text-label-sm text-primary uppercase font-medium mb-1">Authorizing Operator / Shift Lead</label><div class="flex items-center gap-2 p-2.5 bg-surface-container-low rounded-lg border border-secondary/20"><div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary text-[10px] font-bold shrink-0">RM</div><span class="font-label-md text-label-md text-primary font-medium flex-grow">Rajesh M. (Shift Lead - CIN Verified)</span><span class="material-symbols-outlined text-secondary text-[18px]">verified</span></div></div><div><label class="block font-label-sm text-label-sm text-primary uppercase font-medium mb-1">Process / Batch Note (Optional)</label><textarea class="w-full p-2.5 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface outline-none focus:bg-surface-container-lowest focus:shadow-sm border border-secondary/20" placeholder="e.g. Extrusion line 2 running annealed aluminum batch #24C" rows="2">Extrusion line 2 running annealed aluminum batch #24C</textarea></div><div><label class="block font-label-sm text-label-sm text-primary uppercase font-medium mb-1">Proof of Meter Reading / Telemetry Slip (Optional)</label><div class="border-2 border-dashed border-secondary/20 rounded-xl p-3 bg-surface-container-low/60 flex items-center justify-between gap-3"><div class="flex items-center gap-2.5 min-w-0"><div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary shrink-0"><span class="material-symbols-outlined text-[20px]">cloud_upload</span></div><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-primary font-semibold truncate">substation_meter_reading_oct29_0930.jpg</span><span class="font-label-sm text-label-sm text-on-surface-variant">2.4 MB · Cryptographic Hash Verified</span></div></div><button class="shrink-0 px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high font-label-sm text-label-sm text-primary transition-colors" type="button">Change File</button></div></div><div class="p-3 bg-secondary-container/20 rounded-xl flex items-start gap-2.5 border border-secondary/20"><span class="material-symbols-outlined text-secondary text-[20px] mt-0.5 shrink-0">smart_toy</span><div class="text-body-sm font-body-sm text-on-surface"><strong class="text-primary font-semibold">AI Quota Check:</strong> This entry of 3,450 kWh is within the standard run-rate variance (+1.2%). No threshold alerts triggered.</div></div><div class="flex items-center justify-between pt-2 border-t border-surface-container"><div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-secondary text-[16px]">lock</span><span class="">Commits to <strong class="text-primary font-mono">/usageLogs</strong></span></div><div class="flex items-center gap-2.5"><button class="px-4 py-2 rounded-lg bg-surface-container font-label-md text-label-md text-on-surface hover:bg-surface-container-high transition-colors" id="cancel-record-modal-btn" onclick="document.getElementById('record-usage-modal').classList.add('hidden')" type="button">Cancel</button><button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-sm" type="submit"><span class="material-symbols-outlined text-[18px]">verified</span>Record &amp; Sign to Ledger</button></div></div></form></div></div>
+<script>
+    (function initModalControls() {
+      const openBtn = document.getElementById('open-record-modal-btn');
+      const closeBtn = document.getElementById('close-record-modal-btn');
+      const cancelBtn = document.getElementById('cancel-record-modal-btn');
+      const modal = document.getElementById('record-usage-modal');
+
+      if (openBtn && modal) {
+        openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+      }
+      if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+      }
+      if (cancelBtn && modal) {
+        cancelBtn.addEventListener('click', () => modal.classList.add('hidden'));
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low mt-space-xl"><div class="max-w-[1440px] mx-auto px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary">CircleLoop</span><span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Enterprise ESG Suite</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Institutional-grade resource accounting, circular quota enforcement, and verifiable Scope 3 industrial asset management for Bharat Fab Tech Ltd.</p><div class="flex items-center gap-space-sm pt-space-xs"><span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span><span class="font-label-md text-label-md text-secondary">CIN Registered Enterprise Node</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-primary uppercase">Org Operations</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Operations Dashboard</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="resources" href="#">Resource Inventory</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="goals-and-limits" href="#">Quota &amp; Thresholds</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="surplus-exchange" href="#">Circular Marketplace</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-primary uppercase">Intelligence</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-predictions" href="#">AI Predictive Run-Rate</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-predictions" href="#">Anomaly Detection</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Real-time Emission Feed</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="team-members" href="#">Audit Access Logs</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-primary uppercase">Governance</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">BRSR Compliance Pack</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">ISO 14001 Records</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Ledger Proofs</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Export Audit Manifest</a></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><span class="font-label-sm text-label-sm text-on-surface-variant">© 2025 CircleLoop Platform Inc. Licensed to Bharat Fab Tech Ltd.</span><div class="flex items-center gap-space-lg"><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Security Protocols</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Role Permissions</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Support Desk</a></div></div></div></footer>
+
+</body></html>
