@@ -24,19 +24,18 @@ export const SplashScreenPage: React.FC<SplashScreenProps> = ({
   targetRoute = '/marketplace',
 }) => {
   const navigate = useNavigate();
-  const [secondsLeft, setSecondsLeft] = useState(10);
+  const [secondsLeft, setSecondsLeft] = useState(3);
   const [currentStageIdx, setCurrentStageIdx] = useState(0);
   const [telemetryHash, setTelemetryHash] = useState('0x88F-BLR-IND');
 
   const handleFinish = useCallback(() => {
     if (onComplete) {
       onComplete();
-    } else {
-      navigate(targetRoute);
     }
+    navigate(targetRoute);
   }, [onComplete, navigate, targetRoute]);
 
-  // 10-Second Countdown & Progress Sync
+  // 3-Second Countdown & Progress Sync
   useEffect(() => {
     const countdownTimer = setInterval(() => {
       setSecondsLeft((prev) => {
@@ -52,13 +51,12 @@ export const SplashScreenPage: React.FC<SplashScreenProps> = ({
     return () => clearInterval(countdownTimer);
   }, [handleFinish]);
 
-  // Stage progress based on 10s countdown
+  // Stage progress based on 3s countdown
   useEffect(() => {
-    const elapsed = 10 - secondsLeft;
-    if (elapsed >= 8) setCurrentStageIdx(4);
-    else if (elapsed >= 6) setCurrentStageIdx(3);
-    else if (elapsed >= 4) setCurrentStageIdx(2);
-    else if (elapsed >= 2) setCurrentStageIdx(1);
+    const elapsed = 3 - secondsLeft;
+    if (elapsed >= 3) setCurrentStageIdx(4);
+    else if (elapsed >= 2) setCurrentStageIdx(3);
+    else if (elapsed >= 1) setCurrentStageIdx(1);
     else setCurrentStageIdx(0);
 
     // Random cryptographic hash flicker for realism
@@ -72,7 +70,7 @@ export const SplashScreenPage: React.FC<SplashScreenProps> = ({
   }, [secondsLeft]);
 
   const stage = BOOT_STAGES[currentStageIdx];
-  const progressPercent = Math.min(100, Math.round(((10 - secondsLeft) / 10) * 100));
+  const progressPercent = Math.min(100, Math.round(((3 - secondsLeft) / 3) * 100));
 
 
   return (
@@ -289,10 +287,15 @@ export const SplashScreenPage: React.FC<SplashScreenProps> = ({
                 : 'bg-emerald-900/60 hover:bg-emerald-800/80 border border-emerald-500/30 text-emerald-200'
             }`}
           >
-            <span>
-              {secondsLeft === 0
-                ? '⚡ ENTERING PLATFORM...'
-                : `SKIP WAIT (${secondsLeft}s REMAINING)`}
+            <span className="flex items-center gap-1.5">
+              {secondsLeft === 0 ? (
+                <>
+                  <span className="material-symbols-outlined text-[16px]">bolt</span>
+                  <span>ENTERING PLATFORM...</span>
+                </>
+              ) : (
+                <span>SKIP WAIT ({secondsLeft}s REMAINING)</span>
+              )}
             </span>
             <span className="font-mono text-sm">→</span>
           </button>
@@ -302,53 +305,30 @@ export const SplashScreenPage: React.FC<SplashScreenProps> = ({
               to="/marketplace"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/70 hover:bg-emerald-900/90 border border-emerald-800/40 text-emerald-300 transition-all"
             >
-              <span>🛒 Marketplace</span>
+              <span className="material-symbols-outlined text-[14px]">storefront</span>
+              <span>Marketplace</span>
             </Link>
             <Link
               to="/repair-recycle"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/70 hover:bg-emerald-900/90 border border-emerald-800/40 text-emerald-300 transition-all"
             >
-              <span>🔧 Repair Hub</span>
+              <span className="material-symbols-outlined text-[14px]">build</span>
+              <span>Repair Hub</span>
             </Link>
             <Link
               to="/org/dashboard"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/70 hover:bg-emerald-900/90 border border-emerald-800/40 text-emerald-300 transition-all"
             >
-              <span>🏢 Org Dashboard</span>
+              <span className="material-symbols-outlined text-[14px]">corporate_fare</span>
+              <span>Org Dashboard</span>
             </Link>
           </div>
         </div>
       </main>
 
-      {/* Bottom Governance & Environmental Metric Ticker */}
-      <footer className="relative z-10 w-full max-w-6xl flex flex-col md:flex-row items-center justify-between border-t border-emerald-900/40 pt-3 gap-2 text-xs text-emerald-400/70 font-mono">
-        {/* Live Metrics Cluster */}
-        <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-[11px]">
-          <div className="flex items-center gap-1.5">
-            <span className="text-emerald-500">CARBON AVOIDED:</span>
-            <span className="text-emerald-200 font-semibold font-mono">18,420 MT CO₂e</span>
-          </div>
-          <span className="text-emerald-800 hidden sm:inline">·</span>
-          <div className="flex items-center gap-1.5">
-            <span className="text-emerald-500">AUDITED NODES:</span>
-            <span className="text-emerald-200 font-semibold font-mono">14 Verified Hubs</span>
-          </div>
-          <span className="text-emerald-800 hidden sm:inline">·</span>
-          <div className="flex items-center gap-1.5">
-            <span className="text-emerald-500">ZERO LANDFILL:</span>
-            <span className="text-[#2de19a] font-semibold font-mono">89.2%</span>
-          </div>
-        </div>
-
-        {/* Security Note */}
-        <div className="flex items-center gap-3 text-[11px] text-emerald-500/60">
-          <span>© 2025 CircleLoop OS</span>
-          <span className="text-emerald-800">·</span>
-          <span className="flex items-center gap-1 text-emerald-400/80">
-            <span className="material-symbols-outlined text-[13px] text-emerald-400">shield</span>
-            Secured by SHA-256 Ledger
-          </span>
-        </div>
+      {/* Minimalist Footer */}
+      <footer className="relative z-10 w-full max-w-6xl flex items-center justify-center border-t border-emerald-900/40 py-4 text-xs text-emerald-400/80 font-mono">
+        <span>© 2026 CircleLoop OS</span>
       </footer>
     </div>
   );

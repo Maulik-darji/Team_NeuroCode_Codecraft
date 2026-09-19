@@ -78,7 +78,7 @@ export const RepairRecyclePage: React.FC = () => {
             </h3>
 
             <Input
-              label="Item Name *"
+              label="Item Name"
               placeholder="e.g. Industrial Servo Motor, HP LaserJet Printer"
               value={itemName}
               onChange={(e) => setItemName(e.target.value)}
@@ -87,7 +87,7 @@ export const RepairRecyclePage: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-3">
               <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-xs font-semibold text-primary">Category *</label>
+                <label className="font-label-sm text-xs font-semibold text-primary">Category</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
@@ -102,7 +102,7 @@ export const RepairRecyclePage: React.FC = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-xs font-semibold text-primary">Condition *</label>
+                <label className="font-label-sm text-xs font-semibold text-primary">Condition</label>
                 <select
                   value={condition}
                   onChange={(e) => setCondition(e.target.value)}
@@ -117,7 +117,7 @@ export const RepairRecyclePage: React.FC = () => {
             </div>
 
             <Input
-              label="Location (City) *"
+              label="Location (City)"
               placeholder="e.g. Bengaluru, Pune, Ahmedabad"
               value={location}
               onChange={(e) => setLocation(e.target.value)}

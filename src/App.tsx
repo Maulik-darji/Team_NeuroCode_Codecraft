@@ -13,8 +13,9 @@ import { HowItWorksPage } from './pages/public/HowItWorksPage';
 import { OrganizationsPage } from './pages/public/OrganizationsPage';
 import { RepairRecyclePage } from './pages/public/RepairRecyclePage';
 
-// Marketplace Page
+// Marketplace Page & Listing Detail
 import { MarketplacePage } from './pages/marketplace/MarketplacePage';
+import { ListingDetailPage } from './pages/marketplace/ListingDetailPage';
 
 // Sourcing Requirements & Messaging
 import { RequirementsPage } from './pages/requirements/RequirementsPage';
@@ -68,6 +69,8 @@ const AppLayout: React.FC = () => {
           <Route path="/organizations" element={<OrganizationsPage />} />
           <Route path="/repair-recycle" element={<RepairRecyclePage />} />
           <Route path="/marketplace" element={<MarketplacePage />} />
+          <Route path="/marketplace/listing/:id" element={<ListingDetailPage />} />
+          <Route path="/listing/:id" element={<ListingDetailPage />} />
 
           {/* Authentication Routes */}
           <Route path="/login" element={<LoginPage />} />

@@ -15,7 +15,7 @@ export const HowItWorksPage: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         <Card className="border border-outline/10 flex flex-col gap-3">
           <div className="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">1</div>
           <h3 className="font-headline-sm text-xl font-bold text-primary">1. Direct Reuse & Secondary Marketplace</h3>
@@ -34,6 +34,7 @@ export const HowItWorksPage: React.FC = () => {
 
         <Card className="border border-outline/10 flex flex-col gap-3">
           <div className="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">3</div>
+          <div className="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">3</div>
           <h3 className="font-headline-sm text-xl font-bold text-primary">3. Non-Profit Grants & Community Giving</h3>
           <p className="font-body-md text-sm text-on-surface-variant">
             Items listed with a null price (€0 / ₹0) provide verified NGOs, schools, and community centers with high-utility equipment at zero cost.
@@ -45,6 +46,14 @@ export const HowItWorksPage: React.FC = () => {
           <h3 className="font-headline-sm text-xl font-bold text-primary">4. ISO-Certified E-Waste Recycling</h3>
           <p className="font-body-md text-sm text-on-surface-variant">
             When assets reach true end-of-life status, CircleLoop dispatches them to audited smelters with zero-landfill chain-of-custody documentation.
+          </p>
+        </Card>
+
+        <Card className="border border-outline/10 flex flex-col gap-3 lg:col-span-2">
+          <div className="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">5</div>
+          <h3 className="font-headline-sm text-xl font-bold text-primary">5. Organization Resource Management & Governance</h3>
+          <p className="font-body-md text-sm text-on-surface-variant">
+            Empowering enterprise campuses, factories, schools, and hospitals to track electricity, water, and raw material quotas in real-time. Set monthly threshold alerts, log daily consumption, and optimize organizational resource allocation.
           </p>
         </Card>
       </div>

@@ -7,6 +7,7 @@ import { Card } from '../../components/common/Card';
 import { Button } from '../../components/common/Button';
 import { Input } from '../../components/common/Input';
 import { Badge } from '../../components/common/Badge';
+import { compressImageToWebP } from '../../utils/imageCompressor';
 
 export const OrgRegistrationPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -100,7 +101,7 @@ export const OrgRegistrationPage: React.FC = () => {
         ) : (
           <form onSubmit={handleRegister} className="flex flex-col gap-4">
             <Input
-              label="Organization Legal Name *"
+              label="Organization Legal Name"
               placeholder="e.g. Bharat Fab Tech Ltd."
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -110,7 +111,7 @@ export const OrgRegistrationPage: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-3">
               <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-xs font-semibold text-primary">Organization Type *</label>
+                <label className="font-label-sm text-xs font-semibold text-primary">Organization Type</label>
                 <select
                   value={type}
                   onChange={(e) => setType(e.target.value)}
@@ -126,7 +127,7 @@ export const OrgRegistrationPage: React.FC = () => {
               </div>
 
               <Input
-                label="GSTIN / CIN Registration # *"
+                label="GSTIN / CIN Registration #"
                 placeholder="e.g. 27AAAAA0000A1Z5 / U28910"
                 value={gstCin}
                 onChange={(e) => setGstCin(e.target.value)}
@@ -136,7 +137,7 @@ export const OrgRegistrationPage: React.FC = () => {
             </div>
 
             <Input
-              label="Headquarters Location *"
+              label="Headquarters Location"
               placeholder="e.g. Pune Fabrication Complex, MH"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -144,13 +145,65 @@ export const OrgRegistrationPage: React.FC = () => {
               icon="location_on"
             />
 
-            <Input
-              label="Verification Certificate / Document URL"
-              placeholder="https://storage.google.com/org-docs/certificate.pdf"
-              value={docUrl}
-              onChange={(e) => setDocUrl(e.target.value)}
-              icon="link"
-            />
+            <div className="flex flex-col gap-2">
+              <label className="font-label-sm text-xs font-semibold text-primary flex justify-between">
+                <span>Verification Certificate / Document Image</span>
+                <span className="text-[10px] text-secondary font-mono uppercase">Zero-Cost Base64 WebP</span>
+              </label>
+              
+              <div className="flex gap-2 items-center">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      try {
+                        const webpData = await compressImageToWebP(file, { maxWidth: 800, quality: 0.75 });
+                        setDocUrl(webpData);
+                      } catch (err) {
+                        console.error('Document compression failed:', err);
+                        alert('Could not process image file.');
+                      }
+                    }
+                  }}
+                  className="hidden"
+                  id="org-doc-upload"
+                />
+                <label
+                  htmlFor="org-doc-upload"
+                  className="cursor-pointer px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline/20 font-label-md text-xs font-semibold text-primary flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-[18px]">upload_file</span>
+                  <span>Upload Image Document</span>
+                </label>
+                {docUrl.startsWith('data:image/') && (
+                  <span className="text-xs text-secondary flex items-center gap-1 font-mono">
+                    <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                    <span>Document Compressed ({Math.round(docUrl.length / 1024)} KB)</span>
+                  </span>
+                )}
+              </div>
+
+              <Input
+                label="Or Document / Certificate Web Link"
+                placeholder="https://storage.google.com/org-docs/certificate.pdf"
+                value={docUrl.startsWith('data:image/') ? '[Base64 Compressed WebP Image Attached]' : docUrl}
+                onChange={(e) => setDocUrl(e.target.value)}
+                icon="link"
+                disabled={docUrl.startsWith('data:image/')}
+              />
+              {docUrl.startsWith('data:image/') && (
+                <button
+                  type="button"
+                  onClick={() => setDocUrl('')}
+                  className="text-left text-xs text-error font-medium hover:underline flex items-center gap-1"
+                >
+                  <span className="material-symbols-outlined text-[14px]">remove_circle</span>
+                  Remove uploaded document image
+                </button>
+              )}
+            </div>
 
             <Button type="submit" variant="primary" size="lg" isLoading={isSubmitting} className="w-full mt-2">
               Submit Organization Registration

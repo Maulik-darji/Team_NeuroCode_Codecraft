@@ -18,7 +18,7 @@ export const Badge: React.FC<BadgeProps> = ({
 }) => {
   const styles = {
     primary: 'bg-primary-container text-on-primary-container font-semibold',
-    secondary: 'bg-secondary-container/50 text-on-secondary-container font-semibold',
+    secondary: 'bg-secondary-container text-on-secondary-container font-semibold',
     accent: 'bg-secondary-fixed text-on-secondary-fixed font-bold',
     free: 'bg-secondary-fixed text-on-secondary-fixed font-bold',
     warning: 'bg-amber-100 text-amber-900 font-semibold',

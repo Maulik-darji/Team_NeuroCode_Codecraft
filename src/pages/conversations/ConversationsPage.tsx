@@ -115,10 +115,15 @@ export const ConversationsPage: React.FC = () => {
     const msgId = `msg_${Date.now()}`;
 
     try {
+      const activeConvObj = conversations.find((c) => c.id === selectedConvId);
+      const isBuyer = activeConvObj ? activeConvObj.buyerUid === user.uid : true;
+      const userSenderRole = isBuyer ? 'buyer' : 'seller';
+
       // Write user message to subcollection
       await setDoc(doc(db, 'conversations', selectedConvId, 'messages', msgId), {
         id: msgId,
-        sender: 'buyer',
+        sender: userSenderRole,
+        senderId: user.uid,
         text: userText,
         sentAt: timeStr,
       });
@@ -139,13 +144,13 @@ export const ConversationsPage: React.FC = () => {
         let aiResponse = '';
 
         if (inputLower.includes('price') || inputLower.includes('cost') || inputLower.includes('how much')) {
-          aiResponse = `🤖 CircleLoop AI Assistant: The listed item details specify price and verification metrics on the listing page.`;
+          aiResponse = `CircleLoop AI Assistant: The listed item details specify price and verification metrics on the listing page.`;
         } else if (inputLower.includes('condition') || inputLower.includes('quality')) {
-          aiResponse = `🤖 CircleLoop AI Assistant: The item is verified for secondary circular reuse. Contact the seller for on-site testing.`;
+          aiResponse = `CircleLoop AI Assistant: The item is verified for secondary circular reuse. Contact the seller for on-site testing.`;
         } else if (inputLower.includes('location') || inputLower.includes('where')) {
-          aiResponse = `🤖 CircleLoop AI Assistant: The item is available at the seller's designated hub. Inspection hours are standard business hours.`;
+          aiResponse = `CircleLoop AI Assistant: The item is available at the seller's designated hub. Inspection hours are standard business hours.`;
         } else {
-          aiResponse = `🤖 CircleLoop AI Assistant: Message logged! Your inquiry has been forwarded directly to the seller for chain-of-custody pickup coordination.`;
+          aiResponse = `CircleLoop AI Assistant: Message logged! Your inquiry has been forwarded directly to the seller for chain-of-custody pickup coordination.`;
         }
 
         const aiMsgId = `msg_ai_${Date.now()}`;
@@ -191,40 +196,58 @@ export const ConversationsPage: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-[600px]">
         {/* Chat List Sidebar */}
-        <Card className="lg:col-span-4 border border-outline/10 p-4 flex flex-col gap-2 overflow-y-auto">
-          <div className="font-label-sm text-xs text-outline uppercase font-semibold mb-2">
-            Active Conversations ({conversations.length})
+        <Card className="lg:col-span-4 border border-outline/10 p-0 flex flex-col overflow-hidden bg-surface shadow-xs">
+          <div className="p-4 border-b border-outline/10 bg-surface-container-lowest flex items-center justify-between">
+            <span className="font-headline-sm text-sm font-bold text-primary">
+              Messages
+            </span>
+            <Badge variant="neutral">{conversations.length}</Badge>
           </div>
 
-          {loadingConvs && <div className="text-xs text-outline p-2">Loading chats...</div>}
+          <div className="overflow-y-auto flex-1 flex flex-col">
+            {loadingConvs && <div className="text-xs text-outline p-4 text-center">Loading chats...</div>}
 
-          {!loadingConvs && conversations.length === 0 && (
-            <div className="p-4 text-center text-xs text-on-surface-variant">
-              No active conversations yet. Visit the Marketplace and click "Contact Seller" to start a chat.
-            </div>
-          )}
-
-          {conversations.map((conv) => (
-            <div
-              key={conv.id}
-              onClick={() => setSelectedConvId(conv.id)}
-              className={`p-3 rounded-lg cursor-pointer transition-all border ${
-                selectedConvId === conv.id
-                  ? 'bg-secondary-fixed/30 border-secondary'
-                  : 'bg-surface-container-low border-outline/10 hover:bg-surface-container'
-              }`}
-            >
-              <div className="flex items-center justify-between mb-1">
-                <span className="font-headline-sm text-sm font-bold text-primary truncate">
-                  {conv.listingTitle || 'Marketplace Item'}
-                </span>
-                <Badge variant="secondary">AI Assistant</Badge>
+            {!loadingConvs && conversations.length === 0 && (
+              <div className="p-6 text-center text-xs text-on-surface-variant flex flex-col items-center gap-2">
+                <span className="material-symbols-outlined text-[32px] text-outline/30">forum</span>
+                No active conversations yet. Visit the Marketplace and click "Contact Seller" to start a chat.
               </div>
-              <p className="font-body-sm text-xs text-on-surface-variant truncate">
-                {conv.lastMessage || 'No messages yet'}
-              </p>
-            </div>
-          ))}
+            )}
+
+            {conversations.map((conv) => {
+              const dateObj = new Date(conv.lastMessageAt || new Date());
+              const timeString = dateObj.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+              
+              return (
+                <div
+                  key={conv.id}
+                  onClick={() => setSelectedConvId(conv.id)}
+                  className={`p-4 cursor-pointer transition-all border-l-4 flex items-start gap-3 border-b border-outline/5 ${
+                    selectedConvId === conv.id
+                      ? 'bg-surface-container-highest border-l-secondary'
+                      : 'bg-transparent border-l-transparent hover:bg-surface-container-low'
+                  }`}
+                >
+                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex-shrink-0 flex items-center justify-center text-secondary font-bold text-lg">
+                    {(conv.listingTitle || 'M').charAt(0).toUpperCase()}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex justify-between items-baseline mb-1">
+                      <h4 className={`font-headline-sm text-sm truncate pr-2 ${selectedConvId === conv.id ? 'font-bold text-primary' : 'font-semibold text-on-surface'}`}>
+                        {conv.listingTitle || 'Marketplace Item'}
+                      </h4>
+                      <span className={`text-[10px] whitespace-nowrap ${selectedConvId === conv.id ? 'text-secondary font-bold' : 'text-on-surface-variant'}`}>
+                        {timeString}
+                      </span>
+                    </div>
+                    <p className={`font-body-sm text-xs truncate ${selectedConvId === conv.id ? 'text-on-surface font-medium' : 'text-on-surface-variant'}`}>
+                      {conv.lastMessage || 'No messages yet'}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </Card>
 
         {/* Active Chat Window */}
@@ -241,7 +264,6 @@ export const ConversationsPage: React.FC = () => {
                     Conversation ID: #{activeConv.id.slice(-8)}
                   </p>
                 </div>
-                <Badge variant="accent" icon="smart_toy">AI Grounded Q&A</Badge>
               </div>
 
               {/* Messages Feed */}
@@ -251,29 +273,38 @@ export const ConversationsPage: React.FC = () => {
                     Starting conversation... Send a message below.
                   </div>
                 ) : (
-                  messages.map((m) => (
-                    <div
-                      key={m.id}
-                      className={`flex flex-col max-w-[80%] ${
-                        m.sender === 'buyer'
-                          ? 'self-end items-end'
-                          : 'self-start items-start'
-                      }`}
-                    >
+                  messages.map((m) => {
+                    const isMyMessage = m.senderId
+                      ? m.senderId === user.uid
+                      : activeConv.buyerUid === user.uid
+                      ? m.sender === 'buyer'
+                      : m.sender === 'seller';
+                    const isAi = m.sender === 'ai';
+
+                    return (
                       <div
-                        className={`p-3 rounded-xl text-xs ${
-                          m.sender === 'buyer'
-                            ? 'bg-primary text-on-primary rounded-br-none'
-                            : m.sender === 'ai'
-                            ? 'bg-secondary-fixed/30 text-on-secondary-fixed-variant border border-secondary/20 rounded-bl-none'
-                            : 'bg-surface-container text-on-surface rounded-bl-none'
+                        key={m.id}
+                        className={`flex flex-col max-w-[80%] ${
+                          isMyMessage
+                            ? 'self-end items-end'
+                            : 'self-start items-start'
                         }`}
                       >
-                        {m.text}
+                        <div
+                          className={`p-3 rounded-xl text-xs ${
+                            isMyMessage
+                              ? 'bg-primary text-on-primary rounded-br-none'
+                              : isAi
+                              ? 'bg-secondary-fixed/30 text-on-secondary-fixed-variant border border-secondary/20 rounded-bl-none'
+                              : 'bg-surface-container text-on-surface rounded-bl-none'
+                          }`}
+                        >
+                          {m.text}
+                        </div>
+                        <span className="text-[10px] text-outline mt-1 font-mono">{m.sentAt}</span>
                       </div>
-                      <span className="text-[10px] text-outline mt-1 font-mono">{m.sentAt}</span>
-                    </div>
-                  ))
+                    );
+                  })
                 )}
               </div>
 

@@ -309,7 +309,14 @@ export const LandingPage: React.FC = () => {
                         : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'
                     }`}
                   >
-                    {cat === 'Free' ? '🎁 Free / Give Away' : cat}
+                    {cat === 'Free' ? (
+                      <span className="inline-flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[14px]">card_giftcard</span>
+                        <span>Free / Give Away</span>
+                      </span>
+                    ) : (
+                      cat
+                    )}
                   </button>
                 ))}
               </div>
@@ -444,10 +451,13 @@ export const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Resource Metric Bars */}
-                <div className="flex flex-col gap-2.5 mb-space-lg">
+                  <div className="flex flex-col gap-2.5 mb-space-lg">
                   <div className="bg-surface-container-low/40 p-3 rounded-lg flex flex-col gap-1">
                     <div className="flex items-center justify-between font-label-sm text-xs">
-                      <span className="font-bold text-primary">⚡ Electricity</span>
+                      <span className="font-bold text-primary flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[16px] text-secondary">bolt</span>
+                        <span>Electricity</span>
+                      </span>
                       <span className="text-on-surface-variant">142,400 / 220,000 kWh</span>
                     </div>
                     <div className="h-2 bg-surface-container rounded-full overflow-hidden">
@@ -457,7 +467,10 @@ export const LandingPage: React.FC = () => {
 
                   <div className="bg-surface-container-low/40 p-3 rounded-lg flex flex-col gap-1">
                     <div className="flex items-center justify-between font-label-sm text-xs">
-                      <span className="font-bold text-primary">💧 Industrial Water</span>
+                      <span className="font-bold text-primary flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[16px] text-secondary">water_drop</span>
+                        <span>Industrial Water</span>
+                      </span>
                       <span className="text-on-surface-variant">310 / 600 kL</span>
                     </div>
                     <div className="h-2 bg-surface-container rounded-full overflow-hidden">
@@ -467,7 +480,10 @@ export const LandingPage: React.FC = () => {
 
                   <div className="bg-surface-container-low/40 p-3 rounded-lg flex flex-col gap-1">
                     <div className="flex items-center justify-between font-label-sm text-xs">
-                      <span className="font-bold text-primary">📦 Raw Virgin Materials</span>
+                      <span className="font-bold text-primary flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[16px] text-secondary">inventory_2</span>
+                        <span>Raw Virgin Materials</span>
+                      </span>
                       <span className="text-on-surface-variant">42.8 / 50 MT</span>
                     </div>
                     <div className="h-2 bg-surface-container rounded-full overflow-hidden">
@@ -567,14 +583,16 @@ export const LandingPage: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="flex flex-col gap-3 font-body-sm text-xs">
-                  <div className="bg-surface-container-low p-3 rounded-lg text-primary font-medium">
-                    💬 <strong>Buyer:</strong> "Can these servers run on standard 220V 1-phase AC input?"
+                  <div className="flex flex-col gap-3 font-body-sm text-xs">
+                    <div className="bg-surface-container-low p-3 rounded-lg text-primary font-medium flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[16px] text-secondary">forum</span>
+                      <span><strong>Buyer:</strong> "Can these servers run on standard 220V 1-phase AC input?"</span>
+                    </div>
+                    <div className="bg-secondary-fixed/20 p-3 rounded-lg text-on-secondary-fixed-variant border border-secondary/20 flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[16px] text-secondary">smart_toy</span>
+                      <span><strong>CircleLoop AI:</strong> "Yes. The 750W Platinum power supply units support 100-240V AC input at 50/60Hz. Standard 220V 1-phase AC is fully supported."</span>
+                    </div>
                   </div>
-                  <div className="bg-secondary-fixed/20 p-3 rounded-lg text-on-secondary-fixed-variant border border-secondary/20">
-                    🤖 <strong>CircleLoop AI:</strong> "Yes. The 750W Platinum power supply units support 100-240V AC input at 50/60Hz. Standard 220V 1-phase AC is fully supported."
-                  </div>
-                </div>
               </div>
             </div>
           </section>

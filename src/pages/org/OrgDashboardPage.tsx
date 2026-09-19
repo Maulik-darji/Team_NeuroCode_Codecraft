@@ -234,8 +234,9 @@ export const OrgDashboardPage: React.FC = () => {
             <p className="font-body-sm text-xs text-on-surface-variant mb-4">
               At current usage pace ({matPct}% consumed), Raw Virgin Materials capacity is estimated to reach <strong>{Math.round(rawMaterialRes.currentUsage * 1.12)} {rawMaterialRes.unit}</strong>.
             </p>
-            <div className="bg-surface-container-low p-3 rounded-lg border border-outline/10 text-xs text-primary">
-              💡 <strong>AI Recommendation:</strong> Shift secondary assembly line 2 to reclaimed T-Slot extrusions from local circular marketplace.
+            <div className="bg-surface-container-low p-3 rounded-lg border border-outline/10 text-xs text-primary flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-[16px] text-amber-500">lightbulb</span>
+              <span><strong>AI Recommendation:</strong> Shift secondary assembly line 2 to reclaimed T-Slot extrusions from local circular marketplace.</span>
             </div>
           </div>
 
@@ -255,7 +256,7 @@ export const OrgDashboardPage: React.FC = () => {
             <h3 className="font-headline-sm text-xl font-bold text-primary mb-4">Record Daily Resource Usage</h3>
             <form onSubmit={handleSaveUsageLog} className="flex flex-col gap-4">
               <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-xs font-semibold text-primary">Select Resource *</label>
+                <label className="font-label-sm text-xs font-semibold text-primary">Select Resource</label>
                 <select
                   value={selectedResId}
                   onChange={(e) => setSelectedResId(e.target.value)}
@@ -270,7 +271,7 @@ export const OrgDashboardPage: React.FC = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-xs font-semibold text-primary">Usage Quantity to Log *</label>
+                <label className="font-label-sm text-xs font-semibold text-primary">Usage Quantity to Log</label>
                 <input
                   type="number"
                   step="any"

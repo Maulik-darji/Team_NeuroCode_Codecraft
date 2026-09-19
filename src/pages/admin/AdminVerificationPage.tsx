@@ -19,6 +19,7 @@ interface PendingOrg {
 export const AdminVerificationPage: React.FC = () => {
   const [orgs, setOrgs] = useState<PendingOrg[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedDocUrl, setSelectedDocUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const q = query(collection(db, 'organizations'));
@@ -140,15 +141,26 @@ export const AdminVerificationPage: React.FC = () => {
                     <td className="py-3 px-3 font-mono">{org.gstCin}</td>
                     <td className="py-3 px-3 text-on-surface-variant">{org.location}</td>
                     <td className="py-3 px-3">
-                      <a
-                        href={org.docUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-secondary font-semibold hover:underline inline-flex items-center gap-1"
-                      >
-                        <span>View Document</span>
-                        <span className="material-symbols-outlined text-[14px]">open_in_new</span>
-                      </a>
+                      {org.docUrl.startsWith('data:image/') || org.docUrl.match(/\.(jpeg|jpg|gif|png|webp)$/i) ? (
+                        <button
+                          type="button"
+                          onClick={() => setSelectedDocUrl(org.docUrl)}
+                          className="text-secondary font-semibold hover:underline inline-flex items-center gap-1 cursor-pointer"
+                        >
+                          <span>Preview Image</span>
+                          <span className="material-symbols-outlined text-[14px]">visibility</span>
+                        </button>
+                      ) : (
+                        <a
+                          href={org.docUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-secondary font-semibold hover:underline inline-flex items-center gap-1"
+                        >
+                          <span>View Document</span>
+                          <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                        </a>
+                      )}
                     </td>
                     <td className="py-3 px-3">
                       {org.verified ? (
@@ -173,6 +185,43 @@ export const AdminVerificationPage: React.FC = () => {
           </div>
         )}
       </Card>
+
+      {/* Document Preview Lightbox Modal */}
+      {selectedDocUrl && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+          <div className="bg-surface border border-outline/20 rounded-2xl max-w-2xl w-full p-6 shadow-2xl flex flex-col gap-4 relative">
+            <div className="flex items-center justify-between border-b border-outline/10 pb-3">
+              <h3 className="font-headline-sm text-lg font-bold text-primary flex items-center gap-2">
+                <span className="material-symbols-outlined text-secondary">verified_user</span>
+                <span>Verification Document Preview</span>
+              </h3>
+              <button
+                onClick={() => setSelectedDocUrl(null)}
+                className="w-8 h-8 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface"
+              >
+                <span className="material-symbols-outlined text-[20px]">close</span>
+              </button>
+            </div>
+            
+            <div className="max-h-[60vh] overflow-auto flex items-center justify-center bg-surface-container-lowest rounded-xl p-4 border border-outline/10">
+              <img
+                src={selectedDocUrl}
+                alt="Verification Document"
+                className="max-w-full max-h-[50vh] object-contain rounded-lg shadow"
+              />
+            </div>
+
+            <div className="flex justify-between items-center pt-2">
+              <span className="text-xs text-on-surface-variant font-mono">
+                {selectedDocUrl.startsWith('data:image/') ? `Zero-Cost WebP (${Math.round(selectedDocUrl.length / 1024)} KB)` : 'External URL'}
+              </span>
+              <Button variant="outline" size="sm" onClick={() => setSelectedDocUrl(null)}>
+                Close Preview
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

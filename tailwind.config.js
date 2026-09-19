@@ -57,14 +57,15 @@ export default {
         "inverse-on-surface": "#ebf1ff"
       },
       fontFamily: {
-        "display-hero": ["Space Grotesk", "sans-serif"],
-        "body-md": ["Hanken Grotesk", "sans-serif"],
+        "sans": ["Inter", "Plus Jakarta Sans", "system-ui", "-apple-system", "sans-serif"],
+        "display-hero": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "body-md": ["Inter", "Plus Jakarta Sans", "sans-serif"],
         "label-lg": ["JetBrains Mono", "monospace"],
-        "headline-sm": ["Space Grotesk", "sans-serif"],
-        "headline-md": ["Space Grotesk", "sans-serif"],
-        "headline-lg": ["Space Grotesk", "sans-serif"],
-        "body-lg": ["Hanken Grotesk", "sans-serif"],
-        "body-sm": ["Hanken Grotesk", "sans-serif"],
+        "headline-sm": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "headline-md": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "headline-lg": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "body-lg": ["Inter", "Plus Jakarta Sans", "sans-serif"],
+        "body-sm": ["Inter", "Plus Jakarta Sans", "sans-serif"],
         "label-md": ["JetBrains Mono", "monospace"],
         "label-sm": ["JetBrains Mono", "monospace"]
       },

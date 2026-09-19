@@ -124,6 +124,7 @@ export interface Conversation {
 export interface Message {
   id: string;
   sender: string; // 'buyer' | 'seller' | 'ai'
+  senderId?: string;
   text: string;
   sentAt: string;
 }

@@ -91,24 +91,27 @@ export const LoginPage: React.FC = () => {
             variant="primary"
             size="sm"
             onClick={() => handleDemoLogin('admin@circleloop.org', 'Admin@123456', 'platform_admin', '/admin/verification')}
+            icon={<span className="material-symbols-outlined text-[16px]">admin_panel_settings</span>}
           >
-            🛡️ Platform Admin
+            Platform Admin
           </Button>
           <Button
             type="button"
             variant="secondary"
             size="sm"
             onClick={() => handleDemoLogin('orgadmin@circleloop.org', 'OrgAdmin@123456', 'org_admin', '/org/dashboard')}
+            icon={<span className="material-symbols-outlined text-[16px]">corporate_fare</span>}
           >
-            🏢 Org Admin
+            Org Admin
           </Button>
           <Button
             type="button"
             variant="outline"
             size="sm"
             onClick={() => handleDemoLogin('user@circleloop.org', 'User@123456', 'user', '/dashboard')}
+            icon={<span className="material-symbols-outlined text-[16px]">person</span>}
           >
-            👤 Regular User
+            Regular User
           </Button>
         </div>
       </Card>
