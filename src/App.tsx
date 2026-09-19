@@ -12,6 +12,14 @@ import { HowItWorksPage } from './pages/public/HowItWorksPage';
 import { OrganizationsPage } from './pages/public/OrganizationsPage';
 import { RepairRecyclePage } from './pages/public/RepairRecyclePage';
 
+// Marketplace Page
+import { MarketplacePage } from './pages/marketplace/MarketplacePage';
+
+// Sourcing Requirements & Messaging
+import { RequirementsPage } from './pages/requirements/RequirementsPage';
+import { ConversationsPage } from './pages/conversations/ConversationsPage';
+import { ProfilePage } from './pages/profile/ProfilePage';
+
 // Auth pages
 import { LoginPage } from './pages/auth/LoginPage';
 import { SignupPage } from './pages/auth/SignupPage';
@@ -35,18 +43,44 @@ export const App: React.FC = () => {
               <Route path="/how-it-works" element={<HowItWorksPage />} />
               <Route path="/organizations" element={<OrganizationsPage />} />
               <Route path="/repair-recycle" element={<RepairRecyclePage />} />
-              <Route path="/marketplace" element={<LandingPage />} />
+              <Route path="/marketplace" element={<MarketplacePage />} />
 
               {/* Authentication Routes */}
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
 
-              {/* Protected User Dashboard */}
+              {/* Protected User Dashboard & Profile */}
               <Route
                 path="/dashboard"
                 element={
                   <ProtectedRoute>
                     <UserDashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfilePage />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Protected Sourcing & Messaging Routes */}
+              <Route
+                path="/requirements"
+                element={
+                  <ProtectedRoute>
+                    <RequirementsPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/conversations"
+                element={
+                  <ProtectedRoute>
+                    <ConversationsPage />
                   </ProtectedRoute>
                 }
               />
