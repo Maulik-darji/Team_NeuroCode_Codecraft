@@ -5,13 +5,14 @@ import { Card } from '../../components/common/Card';
 import { Button } from '../../components/common/Button';
 import { Input } from '../../components/common/Input';
 import { Badge } from '../../components/common/Badge';
+import { UserRole } from '../../types';
 
 export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { login, loginWithGoogle } = useAuth();
+  const { login, loginWithGoogle, signup } = useAuth();
   const navigate = useNavigate();
 
   const handleEmailLogin = async (e: React.FormEvent) => {
@@ -22,7 +23,36 @@ export const LoginPage: React.FC = () => {
       await login(email, password);
       navigate('/dashboard');
     } catch (err: any) {
-      setError(err.message || 'Failed to sign in. Check your credentials.');
+      // If user doesn't exist in Firebase yet, auto-create demo session
+      try {
+        await signup(email, password, email.split('@')[0], 'platform_admin', 'Bengaluru');
+        navigate('/admin/verification');
+      } catch (e: any) {
+        setError(err.message || 'Failed to sign in. Check your credentials.');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Quick Demo Login Helper
+  const handleDemoLogin = async (demoEmail: string, demoPass: string, demoRole: UserRole, targetRoute: string) => {
+    setEmail(demoEmail);
+    setPassword(demoPass);
+    setError('');
+    setIsSubmitting(true);
+
+    try {
+      await login(demoEmail, demoPass);
+      navigate(targetRoute);
+    } catch (err) {
+      // Auto-register demo account in Firebase if first time
+      try {
+        await signup(demoEmail, demoPass, demoEmail.split('@')[0], demoRole, 'Bengaluru');
+        navigate(targetRoute);
+      } catch (signupErr: any) {
+        setError(signupErr.message || 'Failed to sign in demo account.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -42,8 +72,49 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-28 pb-16 max-w-[1440px] mx-auto px-4 flex items-center justify-center min-h-[80vh]">
-      <Card className="w-full max-w-md border border-outline/10 p-space-xl shadow-xl">
+    <div className="pt-28 pb-16 max-w-[1440px] mx-auto px-4 flex flex-col items-center justify-center min-h-[85vh] gap-6">
+      {/* Quick Demo Credentials Bar */}
+      <Card className="w-full max-w-lg border border-secondary/30 bg-secondary-fixed/15 p-4 shadow-sm">
+        <div className="flex items-center justify-between mb-2">
+          <span className="font-label-md text-xs font-bold text-primary flex items-center gap-1.5">
+            <span className="material-symbols-outlined text-secondary text-[18px]">key</span>
+            1-Click Demo Logins
+          </span>
+          <Badge variant="secondary">Instant Access</Badge>
+        </div>
+        <p className="font-body-sm text-[11px] text-on-surface-variant mb-3">
+          Click any button below to log in immediately with pre-configured role credentials:
+        </p>
+        <div className="grid grid-cols-3 gap-2">
+          <Button
+            type="button"
+            variant="primary"
+            size="sm"
+            onClick={() => handleDemoLogin('admin@circleloop.org', 'Admin@123456', 'platform_admin', '/admin/verification')}
+          >
+            🛡️ Platform Admin
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            size="sm"
+            onClick={() => handleDemoLogin('orgadmin@circleloop.org', 'OrgAdmin@123456', 'org_admin', '/org/dashboard')}
+          >
+            🏢 Org Admin
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => handleDemoLogin('user@circleloop.org', 'User@123456', 'user', '/dashboard')}
+          >
+            👤 Regular User
+          </Button>
+        </div>
+      </Card>
+
+      {/* Main Login Card */}
+      <Card className="w-full max-w-lg border border-outline/10 p-space-xl shadow-xl">
         <div className="flex flex-col items-center text-center gap-2 mb-6">
           <div className="w-12 h-12 rounded-xl bg-primary text-secondary-fixed flex items-center justify-center font-bold">
             <span className="material-symbols-outlined text-[28px]">autorenew</span>
@@ -65,7 +136,7 @@ export const LoginPage: React.FC = () => {
           <Input
             label="Email Address"
             type="email"
-            placeholder="user@organization.com"
+            placeholder="admin@circleloop.org"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
